@@ -294,9 +294,27 @@ h2{font-size:clamp(30px,3.8vw,48px);line-height:1.04;letter-spacing:-.032em;font
 .mq:hover .mq-track{animation-play-state:paused}
 }
 
+/* about */
+.about-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px clamp(32px,6vw,96px);align-items:start}
+.about-side h2{font-size:clamp(27px,3.1vw,42px);line-height:1.08}
+.about-side .hi{display:block}
+.founder{display:flex;align-items:center;gap:16px;width:fit-content;max-width:100%;margin-top:34px;padding:16px 26px 16px 16px;border:1px solid var(--line);border-radius:20px;background:var(--card);box-shadow:0 20px 40px -32px rgba(0,0,0,.55)}
+.founder .mark{flex:none;width:54px;height:54px;border-radius:15px;font-size:25px}
+.founder .mark::after{width:14px;height:14px;right:-5px;top:-5px;box-shadow:0 0 0 3px var(--card)}
+.f-name{display:block;font-size:18px;font-weight:700;letter-spacing:-.01em;line-height:1.3}
+.f-role{display:block;font-size:14px;line-height:1.4;color:var(--muted)}
+.about-body{display:grid;gap:22px;max-width:62ch;padding-top:44px;font-size:clamp(17px,1.45vw,19px);color:var(--muted)}
+.about-body p,.goal p{text-wrap:pretty}
+.about-turn{text-wrap:balance!important;font-size:clamp(23px,2.3vw,30px);font-weight:700;line-height:1.2;letter-spacing:-.024em;color:var(--ink)}
+.goal{position:relative;margin:10px 0 0;padding:26px 28px 26px 34px;border-radius:20px;background:var(--alt);color:var(--ink);font-size:clamp(19px,1.75vw,23px);font-weight:600;line-height:1.4;letter-spacing:-.012em}
+.goal::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:5px;border-radius:0 5px 5px 0;background:var(--yellow)}
+:lang(ru) .about-turn{letter-spacing:-.014em}
+
 /* responsive */
 @media (max-width:1023px){#cta-top{display:none}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:899px){
+.about-grid{grid-template-columns:minmax(0,1fr);gap:28px}
+.about-body{padding-top:0}
 .hero-in{grid-template-columns:minmax(0,1fr);grid-template-rows:auto;grid-template-areas:"lead" "stage" "facts";gap:32px}
 .sec-head,.faq-grid,.cta-box{grid-template-columns:minmax(0,1fr)}
 .pkgs{grid-template-columns:minmax(0,1fr);max-width:600px}
@@ -304,7 +322,7 @@ h2{font-size:clamp(30px,3.8vw,48px);line-height:1.04;letter-spacing:-.032em;font
 .foot-in{grid-template-columns:1fr 1fr}
 .foot-brand{grid-column:1/-1}
 }
-@media (max-width:767px){.links{display:none}.menu-btn{display:block}.top-in{gap:12px}}
+@media (max-width:859px){.links{display:none}.menu-btn{display:block}.top-in{gap:12px}}
 @media (max-width:719px){
 .smp-head{grid-template-columns:minmax(0,1fr)}
 .pages{grid-template-columns:1fr 1fr;gap:22px 16px}
@@ -353,6 +371,7 @@ h2{font-size:clamp(30px,3.8vw,48px);line-height:1.04;letter-spacing:-.032em;font
 .motion .m-nav:not([hidden]) nav a:nth-child(2){animation-delay:.04s}
 .motion .m-nav:not([hidden]) nav a:nth-child(3){animation-delay:.08s}
 .motion .m-nav:not([hidden]) nav a:nth-child(4){animation-delay:.12s}
+.motion .m-nav:not([hidden]) nav a:nth-child(5){animation-delay:.16s}
 .motion .qa[open] .ans{animation:faqIn .45s var(--ease)}
 .motion .viewer[open]{animation:vIn .4s var(--ease)}
 .motion .viewer[open]::backdrop{animation:bIn .4s ease}
@@ -388,6 +407,7 @@ h2{font-size:clamp(30px,3.8vw,48px);line-height:1.04;letter-spacing:-.032em;font
     <a class="brand" href="#top"><span class="mark" aria-hidden="true">N</span><span>Nodir</span></a>
     <nav class="links" aria-label="Bo‘limlar" data-ka="nav_aria">
       <a href="#namunalar" data-k="nav_samples">Namunalar</a>
+      <a href="#haqimda" data-k="nav_about">Men haqimda</a>
       <a href="#xizmatlar" data-k="nav_services">Xizmatlar</a>
       <a href="#savollar" data-k="nav_faq">Savollar</a>
       <a href="#aloqa" data-k="nav_contact">Aloqa</a>
@@ -401,6 +421,7 @@ h2{font-size:clamp(30px,3.8vw,48px);line-height:1.04;letter-spacing:-.032em;font
   <div class="m-nav" id="m-nav" hidden>
     <nav aria-label="Bo‘limlar" data-ka="nav_aria">
       <a href="#namunalar"><span data-k="nav_samples">Namunalar</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#haqimda"><span data-k="nav_about">Men haqimda</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a href="#xizmatlar"><span data-k="nav_services">Xizmatlar</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a href="#savollar"><span data-k="nav_faq">Savollar</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a href="#aloqa"><span data-k="nav_contact">Aloqa</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -503,10 +524,29 @@ h2{font-size:clamp(30px,3.8vw,48px);line-height:1.04;letter-spacing:-.032em;font
 
 </div>
 
+<section class="sec" id="haqimda" data-spy="haqimda" aria-labelledby="about-h">
+  <div class="wrap about-grid">
+    <div class="about-side rv">
+      <p class="eyebrow"><b>02</b><span data-k="e_about">Men haqimda</span></p>
+      <h2 id="about-h"><span class="hi" data-k="about_hi">Salom! Men Nodir,</span> <span data-k="about_h">ushbu portfolio xizmatining asoschisiman.</span></h2>
+      <div class="founder">
+        <span class="mark" aria-hidden="true">N</span>
+        <p><span class="f-name">Nodir</span><span class="f-role" data-k="about_role">Asoschi · portfolio va CV dizayneri</span></p>
+      </div>
+    </div>
+    <div class="about-body">
+      <p class="rv d1" data-k="about_p1">Har bir o‘quvchining professional tarzda ko‘rsatishga arziydigan salohiyati, yutuqlari va intilishlari bor, deb ishonaman. Biroq hamma ham o‘z tajribasini tartibga solib, uni kuchli portfolioga aylantirishni bilavermaydi.</p>
+      <p class="about-turn rv d1" data-k="about_p2">Aynan shu yerda men yordam beraman.</p>
+      <p class="rv d1" data-k="about_p3">O‘quvchilarning ta’limi, ko‘nikmalari, yutuqlari va kelajakdagi maqsadlarini professional dizayndagi portfolioga aylantiraman. Bunday portfolio ularning kimligini va qayerga intilayotganini ko‘rsatib beradi.</p>
+      <blockquote class="goal rv d2"><p data-k="about_goal">Maqsadim oddiy: o‘zini professional tarzda taqdim etish imkoniyati har bir o‘quvchiga ochiq bo‘lsin.</p></blockquote>
+    </div>
+  </div>
+</section>
+
 <section class="sec alt" id="afzalliklar" data-spy="" aria-labelledby="adv-h">
   <div class="wrap">
     <div class="sec-head">
-      <div class="rv"><p class="eyebrow"><b>02</b><span data-k="e_adv">Afzalliklar</span></p><h2 id="adv-h" data-k="adv_h">Nega men bilan ishlash qulay</h2></div>
+      <div class="rv"><p class="eyebrow"><b>03</b><span data-k="e_adv">Afzalliklar</span></p><h2 id="adv-h" data-k="adv_h">Nega men bilan ishlash qulay</h2></div>
       <p class="rv d1 muted" data-k="adv_s">Har bir portfolio o‘quvchining maqsadiga qarab tuziladi.</p>
     </div>
     <ul class="cards">
@@ -521,7 +561,7 @@ h2{font-size:clamp(30px,3.8vw,48px);line-height:1.04;letter-spacing:-.032em;font
 <section class="sec" id="xizmatlar" data-spy="xizmatlar" aria-labelledby="svc-h">
   <div class="wrap">
     <div class="sec-head">
-      <div class="rv"><p class="eyebrow"><b>03</b><span data-k="e_svc">Xizmatlar</span></p><h2 id="svc-h" data-k="svc_h">Sizga qaysi biri kerak?</h2></div>
+      <div class="rv"><p class="eyebrow"><b>04</b><span data-k="e_svc">Xizmatlar</span></p><h2 id="svc-h" data-k="svc_h">Sizga qaysi biri kerak?</h2></div>
       <p class="rv d1 muted" data-k="svc_s">Uchalasi ham o‘zbek, rus yoki ingliz tilida tayyorlanadi.</p>
     </div>
     <div class="pkgs">
@@ -548,7 +588,7 @@ h2{font-size:clamp(30px,3.8vw,48px);line-height:1.04;letter-spacing:-.032em;font
 <section class="sec alt" id="jarayon" data-spy="" aria-labelledby="how-h">
   <div class="wrap">
     <div class="sec-head">
-      <div class="rv"><p class="eyebrow"><b>04</b><span data-k="e_how">Jarayon</span></p><h2 id="how-h" data-k="how_h">Qanday ishlayman</h2></div>
+      <div class="rv"><p class="eyebrow"><b>05</b><span data-k="e_how">Jarayon</span></p><h2 id="how-h" data-k="how_h">Qanday ishlayman</h2></div>
       <p class="rv d1 muted" data-k="how_s">Uch qadam, hammasi Telegram orqali.</p>
     </div>
     <ol class="route rv">
@@ -562,7 +602,7 @@ h2{font-size:clamp(30px,3.8vw,48px);line-height:1.04;letter-spacing:-.032em;font
 <section class="sec" id="savollar" data-spy="savollar" aria-labelledby="faq-h">
   <div class="wrap faq-grid">
     <div class="faq-side rv">
-      <p class="eyebrow"><b>05</b><span data-k="e_faq">Savollar</span></p>
+      <p class="eyebrow"><b>06</b><span data-k="e_faq">Savollar</span></p>
       <h2 id="faq-h" data-k="faq_h">Ko‘p so‘raladigan savollar</h2>
       <p class="muted" data-k="faq_s">Javobini topa olmasangiz, Telegramga yozing.</p>
       <a class="btn line sm" href="#aloqa" data-tg><span data-k="faq_cta">Savol berish</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -582,7 +622,7 @@ h2{font-size:clamp(30px,3.8vw,48px);line-height:1.04;letter-spacing:-.032em;font
   <div class="wrap">
     <div class="cta-box rv">
       <div>
-        <p class="eyebrow"><b>06</b><span data-k="e_ct">Aloqa</span></p>
+        <p class="eyebrow"><b>07</b><span data-k="e_ct">Aloqa</span></p>
         <h2 id="ct-h" data-k="ct_h">Portfolio yoki CV kerakmi?</h2>
         <p class="ct-d" data-k="ct_d">Telegramga yozing: maqsadingizni aytsangiz, qaysi uslub mos kelishini birga tanlaymiz.</p>
         <a class="btn yellow" id="ct-btn" href="#aloqa" data-tg="label" hidden><span data-k="cta_tg">Telegramga yozish</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -597,7 +637,7 @@ h2{font-size:clamp(30px,3.8vw,48px);line-height:1.04;letter-spacing:-.032em;font
   <div class="wrap">
     <div class="foot-in">
       <div class="foot-brand"><a class="brand" href="#top"><span class="mark" aria-hidden="true">N</span><span>Nodir</span></a><p class="muted" data-k="ft_d">O‘quvchilar uchun portfolio va CV: o‘zbek, rus va ingliz tilida.</p></div>
-      <div><p class="ft-h" data-k="ft_nav">Bo‘limlar</p><nav class="ft-nav" aria-label="Bo‘limlar" data-ka="nav_aria"><a href="#namunalar" data-k="nav_samples">Namunalar</a><a href="#xizmatlar" data-k="nav_services">Xizmatlar</a><a href="#savollar" data-k="nav_faq">Savollar</a><a href="#aloqa" data-k="nav_contact">Aloqa</a></nav></div>
+      <div><p class="ft-h" data-k="ft_nav">Bo‘limlar</p><nav class="ft-nav" aria-label="Bo‘limlar" data-ka="nav_aria"><a href="#namunalar" data-k="nav_samples">Namunalar</a><a href="#haqimda" data-k="nav_about">Men haqimda</a><a href="#xizmatlar" data-k="nav_services">Xizmatlar</a><a href="#savollar" data-k="nav_faq">Savollar</a><a href="#aloqa" data-k="nav_contact">Aloqa</a></nav></div>
       <div><p class="ft-h" data-k="ft_ct">Aloqa</p><div class="ft-ct" id="ft-ct"></div></div>
     </div>
     <div class="legal"><span>© 2026 Nodir</span><span data-k="ft_note">Namunadagi o‘quvchilar va ma’lumotlar o‘ylab topilgan.</span><a class="totop" href="#top"><span data-k="totop">Yuqoriga</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 16V5M5.5 9L10 4.5 14.5 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
@@ -625,7 +665,7 @@ const PRICES = { cv: "", portfolio: "", site: "" };
 const T = {
 uz: {
 skip: "Asosiy qismga o‘tish", nav_aria: "Bo‘limlar", lang_aria: "Til", menu: "Menyu",
-nav_samples: "Namunalar", nav_services: "Xizmatlar", nav_faq: "Savollar", nav_contact: "Aloqa",
+nav_samples: "Namunalar", nav_about: "Men haqimda", nav_services: "Xizmatlar", nav_faq: "Savollar", nav_contact: "Aloqa",
 hero_e: "Nodir · portfolio va CV dizayneri",
 h1: "Yutuqlaringizni kuchli portfolioga aylantiraman",
 intro: "Universitet, grant, olimpiada yoki kursga topshirayotgan o‘quvchilar uchun tartibli va chiroyli PDF portfolio hamda CV tayyorlayman.",
@@ -647,6 +687,7 @@ l_c: "Ijodiy uslub, rus tilida",
 d_c: "Rassomchilikka qiziqadigan 9-sinf o‘quvchisi uchun: akvarel muqova, rezyume hamda akvarel, guash, qalam va raqamli ishlar galereyasi.",
 c_c1: "Ishlar galereyasi", c_c3: "6 ta asar",
 pg_cover: "Muqova", pg_cv: "Rezyume", pg_3a: "Yutuqlar", pg_3b: "Loyihalar", pg_3c: "Ishlar", pg_4a: "Sertifikatlar", pg_4c: "Ishlar (davomi)",
+e_about: "Men haqimda", about_hi: "Salom! Men Nodir,", about_h: "ushbu portfolio xizmatining asoschisiman.", about_role: "Asoschi · portfolio va CV dizayneri", about_p1: "Har bir o‘quvchining professional tarzda ko‘rsatishga arziydigan salohiyati, yutuqlari va intilishlari bor, deb ishonaman. Biroq hamma ham o‘z tajribasini tartibga solib, uni kuchli portfolioga aylantirishni bilavermaydi.", about_p2: "Aynan shu yerda men yordam beraman.", about_p3: "O‘quvchilarning ta’limi, ko‘nikmalari, yutuqlari va kelajakdagi maqsadlarini professional dizayndagi portfolioga aylantiraman. Bunday portfolio ularning kimligini va qayerga intilayotganini ko‘rsatib beradi.", about_goal: "Maqsadim oddiy: o‘zini professional tarzda taqdim etish imkoniyati har bir o‘quvchiga ochiq bo‘lsin.",
 e_adv: "Afzalliklar", adv_h: "Nega men bilan ishlash qulay", adv_s: "Har bir portfolio o‘quvchining maqsadiga qarab tuziladi.",
 a1_h: "Shaxsiy yondashuv", a1_d: "Sahifalar maqsadingiz va yutuqlaringizga qarab tuziladi, shablondan ko‘chirilmaydi.",
 a2_h: "Uch tilda", a2_d: "O‘zbek, rus yoki ingliz tilida, kerak bo‘lsa ikki tilda birga.",
@@ -674,7 +715,7 @@ prev: "Oldingi", next: "Keyingi", close: "Yopish"
 },
 ru: {
 skip: "Перейти к содержанию", nav_aria: "Разделы", lang_aria: "Язык", menu: "Меню",
-nav_samples: "Образцы", nav_services: "Услуги", nav_faq: "Вопросы", nav_contact: "Контакты",
+nav_samples: "Образцы", nav_about: "Обо мне", nav_services: "Услуги", nav_faq: "Вопросы", nav_contact: "Контакты",
 hero_e: "Нодир · дизайнер портфолио и резюме",
 h1: "Превращаю ваши достижения в сильное портфолио",
 intro: "Делаю аккуратные и красивые PDF-портфолио и резюме для школьников, которые поступают в университет, на грант, олимпиаду или курсы.",
@@ -696,6 +737,7 @@ l_c: "Творческий стиль, на русском",
 d_c: "Для ученицы 9 класса, которая увлекается рисованием: обложка с акварелью, резюме и галерея работ: акварель, гуашь, карандаш и цифровой рисунок.",
 c_c1: "Галерея работ", c_c3: "6 работ",
 pg_cover: "Обложка", pg_cv: "Резюме", pg_3a: "Достижения", pg_3b: "Проекты", pg_3c: "Работы", pg_4a: "Сертификаты", pg_4c: "Работы (продолжение)",
+e_about: "Обо мне", about_hi: "Привет! Я Нодир,", about_h: "основатель этого сервиса по созданию портфолио.", about_role: "Основатель · дизайнер портфолио и резюме", about_p1: "Я верю, что у каждого ученика есть потенциал, достижения и амбиции, которые стоит показать профессионально. Но далеко не каждый знает, как упорядочить свой опыт и превратить его в убедительное портфолио.", about_p2: "Здесь на помощь прихожу я.", about_p3: "Я помогаю ученикам превратить образование, навыки, достижения и цели на будущее в профессионально оформленное портфолио, которое показывает, кто они и куда стремятся.", about_goal: "Моя цель проста: сделать профессиональную самопрезентацию доступной каждому ученику.",
 e_adv: "Преимущества", adv_h: "Почему со мной удобно", adv_s: "Каждое портфолио строится вокруг цели ученика.",
 a1_h: "Индивидуальный подход", a1_d: "Страницы строятся вокруг вашей цели и достижений, а не копируются из шаблона.",
 a2_h: "На трёх языках", a2_d: "Узбекский, русский или английский, при необходимости сразу на двух.",
@@ -723,7 +765,7 @@ prev: "Назад", next: "Вперёд", close: "Закрыть"
 },
 en: {
 skip: "Skip to content", nav_aria: "Sections", lang_aria: "Language", menu: "Menu",
-nav_samples: "Samples", nav_services: "Services", nav_faq: "FAQ", nav_contact: "Contact",
+nav_samples: "Samples", nav_about: "About", nav_services: "Services", nav_faq: "FAQ", nav_contact: "Contact",
 hero_e: "Nodir · portfolio and CV designer",
 h1: "I turn your achievements into a strong portfolio",
 intro: "Clear, good-looking PDF portfolios and CVs for pupils applying to universities, grants, olympiads and courses.",
@@ -745,6 +787,7 @@ l_c: "Creative style, in Russian",
 d_c: "For a Grade 9 pupil who loves drawing: a watercolour cover, a CV and a gallery of watercolour, gouache, pencil and digital work.",
 c_c1: "Artwork gallery", c_c3: "6 artworks",
 pg_cover: "Cover", pg_cv: "CV", pg_3a: "Achievements", pg_3b: "Projects", pg_3c: "Artwork", pg_4a: "Certificates", pg_4c: "Artwork, continued",
+e_about: "About me", about_hi: "Hi! I’m Nodir,", about_h: "the founder behind this portfolio service.", about_role: "Founder · portfolio and CV designer", about_p1: "I believe every student has potential, achievements, and ambitions worth presenting professionally. However, not everyone knows how to organize their experience and turn it into a compelling portfolio.", about_p2: "That’s where I come in.", about_p3: "I help students transform their educational backgrounds, skills, achievements, and future goals into professionally designed portfolios that represent who they are and where they want to go.", about_goal: "My goal is simple: make professional self-presentation accessible to every student.",
 e_adv: "Advantages", adv_h: "Why work with me", adv_s: "Every portfolio is built around the pupil’s goal.",
 a1_h: "Made for you", a1_d: "Pages are built around your goal and achievements, not copied from a template.",
 a2_h: "Three languages", a2_d: "Uzbek, Russian or English, or two of them side by side.",
@@ -899,7 +942,7 @@ mBtn.addEventListener("click", () => setMenu(mBtn.getAttribute("aria-expanded") 
 mNav.addEventListener("click", e => { if (e.target.closest("a")) setMenu(false); });
 document.addEventListener("click", e => { if (!mNav.hidden && !e.target.closest(".top")) setMenu(false); });
 addEventListener("keydown", e => { if (e.key === "Escape" && !mNav.hidden) { setMenu(false); mBtn.focus(); } });
-const wide = matchMedia("(min-width: 768px)");
+const wide = matchMedia("(min-width: 860px)");
 const onWide = () => { if (wide.matches) setMenu(false); };
 if (wide.addEventListener) wide.addEventListener("change", onWide);
 
