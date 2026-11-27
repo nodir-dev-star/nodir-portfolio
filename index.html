@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nodir Portfolio</title>
+<meta name="description" content="Nodir: o‘quvchilar uchun portfolio va CV. Universitet, grant, olimpiada va kurslarga topshirish uchun PDF portfolio namunalari.">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1a1a19" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Golos+Text:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@700&family=Space+Grotesk:wght@700&family=Unbounded:wght@700&display=swap">
+<script>if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("motion")</script>
+<style>
+/* VOICE  a portfolio maker's own page that pupils and parents open on a phone: calm, confident, studio-like
+   IDEA   the work sells itself: three sample portfolios fan out on a concrete desk and float; the rest is set like a design studio's site
+   PICTURE the fanned portfolios in the hero, then each sample on a full-width band in its own colours
+   COLOUR white ground, near-black ink, concrete #dcdcd7 desk, soft #f5f5f2 alternate bands, safety yellow #ffe600 for calls to action and small accents; night #1a1a19
+   TYPE   Hanken Grotesk 700 headlines with tight tracking, Hanken text (Golos Text covers Cyrillic); each sample's name in its own display face
+   LAYOUT laptop: headline left, desk right; phone: headline, desk, facts. Motion: load sequence, floating desk, ticker, scroll reveals; all off with reduced motion */
+:root{--bg:#fff;--ink:#121212;--muted:#5b5b53;--line:#e4e4df;--alt:#f5f5f2;--card:#fff;--concrete:#dcdcd7;--edge:#c6c6bf;--dots:rgba(18,18,18,.17);--hl:rgba(255,255,255,.6);--panel:#121212;--panel-edge:#121212;--on-panel:#f4f4ef;--panel-mut:#b3b3aa;--panel-line:rgba(255,255,255,.14);--yellow:#ffe600;--on-yellow:#121212;--ca:#1c2541;--cb:#08695f;--cc:#ff6a47;--shadow:0 22px 44px -26px rgba(18,18,18,.4);--gut:clamp(18px,5vw,48px);--ease:cubic-bezier(.2,.7,.2,1);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1a1a19;--ink:#f1f1ec;--muted:#a9a9a1;--line:#33332f;--alt:#212120;--card:#242422;--concrete:#2a2a28;--edge:#42423d;--dots:rgba(255,255,255,.11);--hl:rgba(255,255,255,.05);--panel:#0e0e0d;--panel-edge:#33332f;--on-panel:#f1f1ec;--panel-mut:#a9a9a1;--panel-line:rgba(255,255,255,.12);--ca:#9fb1e6;--cb:#4fd1bd;--shadow:0 22px 44px -26px rgba(0,0,0,.85);color-scheme:dark}}
+:root[data-theme=dark]{--bg:#1a1a19;--ink:#f1f1ec;--muted:#a9a9a1;--line:#33332f;--alt:#212120;--card:#242422;--concrete:#2a2a28;--edge:#42423d;--dots:rgba(255,255,255,.11);--hl:rgba(255,255,255,.05);--panel:#0e0e0d;--panel-edge:#33332f;--on-panel:#f1f1ec;--panel-mut:#a9a9a1;--panel-line:rgba(255,255,255,.12);--ca:#9fb1e6;--cb:#4fd1bd;--shadow:0 22px 44px -26px rgba(0,0,0,.85);color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "Hanken Grotesk","Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:inherit}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+::selection{background:var(--yellow);color:#121212}
+.wrap{width:100%;max-width:calc(1240px + 2 * var(--gut));margin-inline:auto;padding-inline:var(--gut)}
+.muted{color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:absolute;left:12px;top:-64px;z-index:100;padding:10px 16px;border-radius:10px;background:var(--ink);color:var(--bg);font-weight:600;text-decoration:none}
+.skip:focus{top:12px}
+.d1{--d:.08s}.d2{--d:.16s}.d3{--d:.24s}.d4{--d:.32s}
+
+/* header */
+.top{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+@supports (background:color-mix(in srgb,red 50%,blue)) and ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.top{background:color-mix(in srgb,var(--bg) 82%,transparent);-webkit-backdrop-filter:saturate(1.6) blur(16px);backdrop-filter:saturate(1.6) blur(16px)}}
+.top.scrolled{border-bottom-color:var(--line);box-shadow:0 12px 32px -26px rgba(0,0,0,.55)}
+.top-in{display:flex;align-items:center;gap:16px;height:68px}
+.brand{display:inline-flex;align-items:center;gap:11px;margin-right:auto;font-weight:700;font-size:20px;letter-spacing:-.02em;text-decoration:none}
+.mark{position:relative;display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--ink);color:var(--bg);font-size:17px;font-weight:800;letter-spacing:0;transition:transform .5s var(--ease)}
+.mark::after{content:"";position:absolute;right:-4px;top:-4px;width:11px;height:11px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 2.5px var(--bg)}
+.links{display:flex;gap:2px}
+.links a{position:relative;padding:10px 12px;color:var(--muted);font-size:15px;font-weight:500;text-decoration:none;transition:color .2s}
+.links a::after{content:"";position:absolute;left:12px;right:12px;bottom:5px;height:2px;border-radius:2px;background:var(--ink);transform:scaleX(0);transform-origin:0 50%;transition:transform .35s var(--ease)}
+.links a[aria-current]{color:var(--ink)}
+.links a[aria-current]::after{transform:scaleX(1)}
+.langs{display:flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px}
+.langs button{min-width:44px;min-height:38px;border:0;border-radius:999px;background:none;color:var(--muted);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:background-color .25s,color .25s}
+.langs button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--yellow);transform:scaleX(0);transform-origin:0 50%;pointer-events:none}
+.menu-btn{display:none;position:relative;flex:none;width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:none;color:var(--ink);cursor:pointer}
+.menu-btn span{position:absolute;left:12px;right:12px;height:2px;border-radius:2px;background:currentColor;transition:transform .35s var(--ease),top .35s var(--ease)}
+.menu-btn span:first-child{top:16px}
+.menu-btn span:last-child{top:25px}
+.menu-btn[aria-expanded=true] span{top:20.5px}
+.menu-btn[aria-expanded=true] span:first-child{transform:rotate(45deg)}
+.menu-btn[aria-expanded=true] span:last-child{transform:rotate(-45deg)}
+.m-nav{position:absolute;left:0;right:0;top:100%;padding:4px var(--gut) 22px;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 30px 40px -30px rgba(0,0,0,.45)}
+.m-nav[hidden]{display:none}
+.m-nav nav a{display:flex;justify-content:space-between;align-items:center;padding:15px 0;border-bottom:1px solid var(--line);font-size:20px;font-weight:600;letter-spacing:-.01em;text-decoration:none}
+.m-nav nav svg{width:18px;height:18px;color:var(--muted)}
+.m-nav .btn{width:100%;margin-top:18px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;border-radius:999px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font-family:inherit;font-size:16px;font-weight:600;line-height:1.2;text-align:center;text-decoration:none;cursor:pointer;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background-color .25s,color .25s,border-color .25s}
+.btn[hidden]{display:none}
+.btn .arr{flex:none;width:18px;height:18px;transition:transform .35s var(--ease)}
+.btn.yellow{background:var(--yellow);border-color:var(--yellow);color:var(--on-yellow)}
+.btn.dark{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.btn.sm{min-height:42px;padding:0 18px;font-size:15px}
+.btn:active{transform:scale(.98)}
+
+/* hero */
+.hero-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:1fr auto;grid-template-areas:"lead stage" "facts stage";gap:36px clamp(32px,5vw,72px);padding-block:clamp(28px,4.5vw,64px) clamp(48px,6vw,88px)}
+.lead{grid-area:lead;align-self:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;font-size:14px;font-weight:600;color:var(--muted)}
+.eyebrow b{display:inline-grid;place-items:center;min-width:30px;height:24px;padding:0 7px;border-radius:7px;background:var(--yellow);color:#121212;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}
+.pill{padding:7px 15px 7px 12px;border-radius:999px;background:var(--panel);color:var(--on-panel);border:1px solid var(--panel-edge);margin-bottom:24px}
+.pulse{flex:none;width:8px;height:8px;border-radius:50%;background:var(--yellow)}
+h1{font-size:clamp(38px,4.9vw,64px);line-height:1.02;letter-spacing:-.038em;font-weight:700;margin-bottom:22px}
+.h1w .w{display:inline-block;overflow:hidden;vertical-align:top;padding:.08em .03em .14em;margin:-.08em -.03em -.14em}
+.h1w .w>span{display:inline-block}
+.intro{max-width:50ch;font-size:clamp(17px,1.45vw,19px);color:var(--muted)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.facts{grid-area:facts;align-self:end;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:0;padding:24px 0 0;list-style:none;border-top:1px solid var(--line)}
+.facts li{display:grid;gap:6px;align-content:start}
+.facts b{font-size:clamp(28px,3vw,38px);font-weight:700;letter-spacing:-.035em;line-height:1}
+.facts span{font-size:14px;line-height:1.4;color:var(--muted)}
+
+/* desk with the three sample portfolios */
+.stage{grid-area:stage;position:relative;isolation:isolate;overflow:hidden;display:grid;align-content:center;container-type:inline-size;border-radius:28px;background:var(--concrete)}
+.stage::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(var(--dots) 1.1px,transparent 1.5px) 0 0/18px 18px;-webkit-mask-image:radial-gradient(75% 65% at 50% 45%,#000 20%,transparent 85%);mask-image:radial-gradient(75% 65% at 50% 45%,#000 20%,transparent 85%)}
+.stage::after{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(80% 60% at 50% 0%,var(--hl),transparent 70%)}
+.stage-in{position:relative;--sw:180px;--dx:calc(var(--sw) * .6);height:calc(var(--sw) * 2.55)}
+@supports (width:1cqi){.stage-in{--sw:min(210px,35cqi)}}
+.fan{position:absolute;left:50%;top:46%;width:var(--sw);aspect-ratio:210/297;translate:-50% -50%;transform:perspective(1200px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .7s var(--ease)}
+.pf{position:absolute;inset:0;display:block;z-index:1;transform:var(--t);outline:none}
+.pf-a{--t:translate(calc(var(--dx) * -1),calc(var(--sw) * .12)) rotate(-10deg)}
+.pf-b{--t:translate(var(--dx),calc(var(--sw) * .12)) rotate(10deg)}
+.pf-c{--t:translate(0px,calc(var(--sw) * -.05)) rotate(0deg);z-index:3}
+.pf:focus-visible{z-index:5}
+.bob,.lift{position:absolute;inset:0;display:block}
+.lift{transition:transform .55s var(--ease)}
+.sheet{position:absolute;inset:0;display:block;width:100%;height:100%;border-radius:3px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.06),0 24px 40px -18px rgba(0,0,0,.45);transition:transform .55s var(--ease)}
+.s3{transform:translate(9px,7px) rotate(3.5deg)}
+.s2{transform:translate(4.5px,3.5px) rotate(1.7deg)}
+.pf:focus-visible .lift{transform:translateY(-14px) scale(1.035)}
+.pf:focus-visible .s1{outline:3px solid var(--ink);outline-offset:4px}
+.floor{position:absolute;left:50%;top:calc(46% + var(--sw) * .74);width:calc(var(--dx) * 2 + var(--sw) * 1.25);height:calc(var(--sw) * .22);translate:-50% 0;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.24),transparent);filter:blur(6px)}
+.chip{position:absolute;z-index:6;display:inline-flex;align-items:center;gap:8px;padding:6px 7px 6px 12px;border-radius:999px;background:var(--card);color:var(--ink);font-size:14px;font-weight:600;line-height:20px;white-space:nowrap;box-shadow:0 0 0 1px var(--line),0 14px 30px -14px rgba(0,0,0,.45)}
+.chip::before{content:"";flex:none;width:9px;height:9px;border-radius:50%;background:var(--c)}
+.chip i{font-style:normal;font-size:11px;font-weight:700;letter-spacing:.06em;padding:1px 7px;border-radius:999px;background:var(--alt);color:var(--muted)}
+.chip-a{--c:var(--ca);left:calc(50% - var(--dx) - var(--sw) * .66);top:calc(46% - var(--sw) * .98)}
+.chip-b{--c:var(--cb);right:calc(50% - var(--dx) - var(--sw) * .66);top:calc(46% - var(--sw) * .8)}
+.chip-c{--c:var(--cc);left:50%;top:calc(46% + var(--sw) * .93);translate:-50% 0}
+
+/* ticker */
+.mq{overflow:hidden;padding:20px 0;background:#121212;color:#f4f4ef;border-block:1px solid #121212}
+:root[data-theme=dark] .mq{background:#0e0e0d;border-color:var(--line)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .mq{background:#0e0e0d;border-color:var(--line)}}
+.mq-track{display:flex;width:max-content}
+.mq-set{display:flex;flex:none;margin:0;padding:0;list-style:none}
+.mq-set li{display:flex;align-items:center;gap:30px;padding-right:30px;font-size:clamp(18px,2vw,24px);font-weight:600;letter-spacing:-.015em;white-space:nowrap}
+.mq-set li::after{content:"";flex:none;width:9px;height:9px;background:var(--yellow);transform:rotate(45deg)}
+html:not(.motion) .mq-track{width:auto}
+html:not(.motion) .mq-set{flex:1 1 auto;flex-wrap:wrap;justify-content:center;row-gap:8px;padding-inline:var(--gut)}
+html:not(.motion) .mq-set[aria-hidden]{display:none}
+html:not(.motion) .mq-set li{font-size:17px;gap:18px;padding-right:18px}
+
+/* sections */
+.sec{padding-block:clamp(64px,9vw,120px)}
+.alt{background:var(--alt)}
+.sec-head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:16px clamp(32px,5vw,80px);align-items:end;margin-bottom:clamp(36px,4.5vw,60px)}
+.sec-head>p{max-width:46ch}
+h2{font-size:clamp(30px,3.8vw,48px);line-height:1.04;letter-spacing:-.032em;font-weight:700}
+:lang(ru) h1,:lang(ru) h2,:lang(ru) .pkg h3{letter-spacing:-.022em}
+.smp-intro{padding-bottom:clamp(36px,5vw,64px)}
+.smp-intro .sec-head{margin-bottom:0}
+
+/* sample bands */
+.smp{background:var(--b-bg);color:var(--b-ink);padding-block:clamp(56px,8vw,110px)}
+.smp-head{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:16px clamp(28px,5vw,72px);align-items:end;margin-bottom:clamp(32px,4vw,52px)}
+.b-label{display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:14px;font-weight:600;color:var(--b-acc)}
+.b-no{display:inline-grid;place-items:center;height:24px;padding:0 9px;border:1px solid var(--b-line);border-radius:999px;color:var(--b-ink);font-size:12px;font-variant-numeric:tabular-nums}
+.b-name{font-family:var(--b-font);font-weight:700;font-size:clamp(40px,5.2vw,64px);line-height:1.02;letter-spacing:-.01em}
+.b-desc{color:var(--b-mut);max-width:58ch}
+.chips{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{font-size:14px;line-height:20px;padding:6px 12px;border:1px solid var(--b-line);border-radius:999px}
+.pages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.6vw,36px);counter-reset:pg}
+.pages.p4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.pg{position:relative;display:block;width:100%;margin:0;padding:0;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:zoom-in;counter-increment:pg}
+.pg img{display:block;width:100%;height:auto;aspect-ratio:210/297;border-radius:2px;background:#fff;box-shadow:8px 8px 0 var(--b-shadow);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.zoom{position:absolute;right:12px;top:12px;width:40px;height:40px;border-radius:50%;background:rgba(17,17,17,.82);color:#fff;display:grid;place-items:center;transition:transform .5s var(--ease)}
+.zoom svg{width:18px;height:18px}
+.pg-cap{display:flex;gap:8px;margin-top:16px;font-size:14px;font-weight:600}
+.pg-cap::before{content:counter(pg,decimal-leading-zero);opacity:.62;font-variant-numeric:tabular-nums}
+.smp .pg:focus-visible{outline:3px solid var(--b-ink);outline-offset:6px}
+#s-aziza{--b-bg:#1c2541;--b-ink:#f4f1ea;--b-mut:#cfd4e0;--b-acc:#f0b9c1;--b-line:rgba(244,241,234,.3);--b-font:"Cormorant Garamond",Georgia,serif;--b-shadow:#10172b}
+#s-jasur{--b-bg:#e3f4f1;--b-ink:#111827;--b-mut:#3f4a5a;--b-acc:#08695f;--b-line:#acd6ce;--b-font:"Space Grotesk","Golos Text",sans-serif;--b-shadow:#bfe2dc}
+#s-madina{--b-bg:#ff6a47;--b-ink:#241f31;--b-mut:#241f31;--b-acc:#241f31;--b-line:rgba(36,31,49,.38);--b-font:"Unbounded","Golos Text",sans-serif;--b-shadow:#d84d2c}
+
+/* advantages */
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin:0;padding:0;list-style:none}
+.card{height:100%;display:flex;flex-direction:column;gap:10px;padding:26px;border-radius:20px;background:var(--card);border:1px solid var(--line);transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .3s}
+.ic{display:grid;place-items:center;width:52px;height:52px;margin-bottom:10px;border-radius:14px;background:var(--alt);color:var(--ink);transition:background-color .3s,color .3s,transform .5s var(--ease)}
+.ic svg{width:26px;height:26px}
+.card h3{font-size:19px;font-weight:700;letter-spacing:-.012em}
+.card p{color:var(--muted);font-size:16px}
+
+/* packages */
+.pkgs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+.pkg{position:relative;display:flex;flex-direction:column;gap:12px;padding:30px;border-radius:24px;background:var(--card);border:1px solid var(--line);transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.pkg-n{font-size:14px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.pkg h3{font-size:clamp(24px,2.3vw,30px);line-height:1.1;font-weight:700;letter-spacing:-.025em;padding-right:4px}
+.pkg-u{color:var(--muted)}
+.ticks{display:grid;gap:11px;margin:8px 0 0;padding:20px 0 0;list-style:none;border-top:1px solid var(--line)}
+.ticks li{display:flex;gap:11px;align-items:flex-start}
+.ticks svg{flex:none;width:22px;height:22px;margin-top:2px;padding:4px;border-radius:50%;background:var(--alt)}
+.pkg-foot{display:grid;gap:14px;margin-top:auto;padding-top:14px}
+.price{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:14px;color:var(--muted)}
+.price b{font-size:20px;color:var(--ink);letter-spacing:-.01em}
+.price[hidden]{display:none}
+.pkg .btn{width:100%}
+.pkg.feat{background:var(--panel);color:var(--on-panel);border-color:var(--panel-edge)}
+.pkg.feat .pkg-n,.pkg.feat .pkg-u,.pkg.feat .price{color:var(--panel-mut)}
+.pkg.feat .price b{color:var(--on-panel)}
+.pkg.feat .ticks{border-color:var(--panel-line)}
+.pkg.feat .ticks svg{background:var(--yellow);color:#121212}
+.badge{position:absolute;top:26px;right:26px;padding:5px 12px;border-radius:999px;background:var(--yellow);color:#121212;font-size:13px;font-weight:700}
+
+/* process */
+.route{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin:0;padding:0;list-style:none;counter-reset:st}
+.route li{position:relative;display:grid;gap:8px;align-content:start;padding-top:68px;counter-increment:st}
+.route li::before{content:counter(st,decimal-leading-zero);position:absolute;top:0;left:0;z-index:1;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--ink);color:var(--bg);box-shadow:inset 0 0 0 2px var(--ink);font-size:15px;font-weight:700;transition:background-color .45s,color .45s}
+.route li:last-child::before{background:var(--yellow);color:#121212}
+.route li:not(:last-child)::after{content:"";position:absolute;top:22px;left:56px;right:-18px;height:2px;border-radius:2px;background:var(--ink);transform-origin:0 50%;transition:scale .8s var(--ease)}
+.route h3{font-size:19px;font-weight:700;letter-spacing:-.012em}
+.route p{color:var(--muted)}
+.rv-on .route:not(.in):not(.seen) li::before{background:var(--alt);color:var(--ink)}
+.rv-on .route:not(.in):not(.seen) li::after{scale:0 1}
+.route li:nth-child(1)::before{transition-delay:.2s}
+.route li:nth-child(1)::after{transition-delay:.45s}
+.route li:nth-child(2)::before{transition-delay:1.05s}
+.route li:nth-child(2)::after{transition-delay:1.3s}
+.route li:nth-child(3)::before{transition-delay:1.9s}
+
+/* questions */
+.faq-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:32px clamp(32px,6vw,96px);align-items:start}
+.faq-side{position:sticky;top:104px}
+.faq-side h2{margin-bottom:16px}
+.faq-side .btn{margin-top:26px}
+.qa{border-bottom:1px solid var(--line)}
+.qa:first-child{border-top:1px solid var(--line)}
+.qa summary{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-size:clamp(17px,1.6vw,19px);font-weight:600;letter-spacing:-.01em;cursor:pointer;list-style:none}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary:focus-visible{outline-offset:6px;border-radius:6px}
+.pm{position:relative;flex:none;width:38px;height:38px;border-radius:50%;border:1.5px solid var(--line);color:var(--ink);transition:transform .45s var(--ease),background-color .3s,border-color .3s,color .3s}
+.pm::before,.pm::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:2px;margin:-1px 0 0 -7px;border-radius:2px;background:currentColor}
+.pm::after{transform:rotate(90deg)}
+.qa[open] .pm{transform:rotate(135deg);background:var(--yellow);border-color:var(--yellow);color:#121212}
+.ans{padding:0 64px 26px 0;color:var(--muted)}
+
+/* call to action */
+.cta{padding-bottom:clamp(56px,8vw,104px)}
+.cta-box{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:36px clamp(32px,5vw,72px);align-items:center;padding:clamp(30px,6vw,80px);border-radius:clamp(24px,3vw,36px);background:var(--panel);color:var(--on-panel);border:1px solid var(--panel-edge)}
+.cta-box::before{content:"";position:absolute;z-index:-1;right:-180px;top:-240px;width:600px;height:600px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,230,0,.3),rgba(255,230,0,0))}
+.cta-box::after{content:"";position:absolute;z-index:-1;inset:0;background:radial-gradient(rgba(255,255,255,.08) 1px,transparent 1.4px) 0 0/22px 22px;-webkit-mask-image:linear-gradient(100deg,transparent 35%,#000);mask-image:linear-gradient(100deg,transparent 35%,#000)}
+.cta-box .eyebrow{color:var(--panel-mut)}
+.cta-box h2{font-size:clamp(34px,4.6vw,60px);line-height:1;letter-spacing:-.04em}
+.ct-d{margin:18px 0 30px;max-width:44ch;color:var(--panel-mut);font-size:clamp(17px,1.5vw,19px)}
+.ct-card{padding:6px 24px;border-radius:20px;background:rgba(255,255,255,.05);border:1px solid var(--panel-line)}
+.ct-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:18px 0;border-bottom:1px solid var(--panel-line)}
+.ct-row:last-child{border-bottom:0}
+.ct-row span{font-size:14px;color:var(--panel-mut)}
+.ct-row a{font-weight:600;text-decoration:none;overflow-wrap:anywhere;text-align:right}
+.ct-empty{padding:22px 0;color:var(--panel-mut)}
+
+/* footer */
+.foot{padding-top:clamp(48px,6vw,72px);border-top:1px solid var(--line);overflow:hidden}
+.foot-in{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr);gap:32px}
+.foot-brand p{margin-top:14px;max-width:36ch}
+.ft-h{margin-bottom:12px;font-size:14px;font-weight:600;color:var(--muted)}
+.ft-nav,.ft-ct{display:grid;gap:8px;justify-items:start}
+.ft-nav a,.ft-ct a{font-weight:500;text-decoration:none}
+.legal{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 24px;margin-top:clamp(40px,5vw,64px);padding-block:20px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.totop{display:inline-flex;align-items:center;gap:8px;color:var(--ink);font-weight:600;text-decoration:none}
+.totop svg{width:16px;height:16px;transition:transform .35s var(--ease)}
+.giant{margin:clamp(16px,3vw,40px) 0 0;padding-top:.05em;font-size:clamp(88px,22vw,300px);font-weight:800;line-height:.76;letter-spacing:-.065em;text-align:center;color:var(--concrete);user-select:none;overflow:hidden}
+.giant span{color:var(--yellow)}
+
+/* page viewer */
+.viewer{width:min(94vw,calc((94vh - 128px) * .7071));max-width:94vw;max-height:94vh;padding:0;border:0;border-radius:16px;background:var(--bg);color:var(--ink);overflow:auto}
+.viewer::backdrop{background:rgba(12,12,12,.82)}
+.v-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:6px 6px 6px 18px;border-bottom:1px solid var(--line)}
+#v-cap{font-weight:600;font-size:16px}
+.v-x{flex:none;display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:50%;background:none;color:var(--ink);cursor:pointer}
+.v-x svg,.v-nav svg{width:20px;height:20px}
+#v-img{display:block;width:100%;height:auto;aspect-ratio:210/297;background:#fff;touch-action:pan-y;user-select:none;-webkit-user-drag:none}
+.v-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 10px;border-top:1px solid var(--line)}
+.v-nav button{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1.5px solid var(--ink);background:var(--bg);color:var(--ink);cursor:pointer;transition:background-color .25s,color .25s}
+#v-count{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* hover, only where a real pointer can hover */
+@media (hover:hover){
+.brand:hover .mark{transform:rotate(-8deg)}
+.links a:hover{color:var(--ink)}
+.links a:hover::after{transform:scaleX(1)}
+.langs button:not([aria-pressed=true]):hover{color:var(--ink)}
+.btn:hover .arr{transform:translateX(4px)}
+.btn:hover .arr.down{transform:translateY(3px)}
+.btn.yellow:hover{transform:translateY(-2px);box-shadow:0 16px 30px -14px rgba(150,130,0,.75)}
+.btn.line:hover{background:var(--ink);color:var(--bg)}
+.btn.dark:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.pf:hover{z-index:5}
+.pf:hover .lift{transform:translateY(-14px) scale(1.035)}
+.pf:hover .s2{transform:translate(16px,5px) rotate(5deg)}
+.pf:hover .s3{transform:translate(30px,10px) rotate(9deg)}
+.pg:hover img{transform:translate(-4px,-6px);box-shadow:14px 14px 0 var(--b-shadow)}
+.pg:hover .zoom{transform:translate(-4px,-6px) scale(1.08)}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--edge)}
+.card:hover .ic{background:var(--yellow);color:#121212;transform:rotate(-6deg)}
+.pkg:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.qa summary:hover .pm{border-color:var(--ink)}
+.ct-row a:hover{text-decoration:underline}
+.ft-nav a:hover,.ft-ct a:hover{text-decoration:underline;text-underline-offset:4px}
+.totop:hover svg{transform:translateY(-3px)}
+.v-nav button:hover{background:var(--ink);color:var(--bg)}
+.mq:hover .mq-track{animation-play-state:paused}
+}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px clamp(32px,6vw,96px);align-items:start}
+.about-side h2{font-size:clamp(27px,3.1vw,42px);line-height:1.08}
+.about-side .hi{display:block}
+.founder{display:flex;align-items:center;gap:16px;width:fit-content;max-width:100%;margin-top:34px;padding:16px 26px 16px 16px;border:1px solid var(--line);border-radius:20px;background:var(--card);box-shadow:0 20px 40px -32px rgba(0,0,0,.55)}
+.founder .mark{flex:none;width:54px;height:54px;border-radius:15px;font-size:25px}
+.founder .mark::after{width:14px;height:14px;right:-5px;top:-5px;box-shadow:0 0 0 3px var(--card)}
+.f-name{display:block;font-size:18px;font-weight:700;letter-spacing:-.01em;line-height:1.3}
+.f-role{display:block;font-size:14px;line-height:1.4;color:var(--muted)}
+.about-body{display:grid;gap:22px;max-width:62ch;padding-top:44px;font-size:clamp(17px,1.45vw,19px);color:var(--muted)}
+.about-body p,.goal p{text-wrap:pretty}
+.about-turn{text-wrap:balance!important;font-size:clamp(23px,2.3vw,30px);font-weight:700;line-height:1.2;letter-spacing:-.024em;color:var(--ink)}
+.goal{position:relative;margin:10px 0 0;padding:26px 28px 26px 34px;border-radius:20px;background:var(--alt);color:var(--ink);font-size:clamp(19px,1.75vw,23px);font-weight:600;line-height:1.4;letter-spacing:-.012em}
+.goal::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:5px;border-radius:0 5px 5px 0;background:var(--yellow)}
+:lang(ru) .about-turn{letter-spacing:-.014em}
+
+/* pricing: the package cards reuse .pkg, .ticks, .badge and .btn from the services section */
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+.plan{gap:0;transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .3s}
+.plan h3{font-size:clamp(22px,2vw,26px)}
+.plan .pkg-u{margin-top:8px;font-size:16px;text-wrap:pretty}
+.p-price{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:8px;line-height:1;white-space:nowrap}
+.p-price b{font-size:clamp(38px,3.4vw,48px);font-weight:700;letter-spacing:-.04em}
+.p-price span{font-size:17px;font-weight:600;color:var(--muted)}
+.plan .p-price{margin-top:22px}
+.plan .ticks{margin:24px 0 28px}
+.plan .btn{width:100%;margin-top:auto}
+.ticks .inc{font-weight:600}
+.plan .badge{top:0;right:auto;left:30px;translate:0 -50%;line-height:1.4;white-space:nowrap;box-shadow:0 10px 22px -12px rgba(120,100,0,.8)}
+.pkg.feat .p-price span{color:var(--panel-mut)}
+.plan.feat :focus-visible{outline-color:var(--on-panel)}
+.prem{border-color:transparent;background:radial-gradient(90% 60% at 100% 0,rgba(255,230,0,.16),rgba(255,230,0,0) 70%) padding-box,linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(150deg,#d9b200,var(--line) 46%) border-box}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .prem{background:radial-gradient(90% 60% at 100% 0,rgba(255,230,0,.075),rgba(255,230,0,0) 70%) padding-box,linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(150deg,rgba(255,230,0,.62),var(--line) 46%) border-box}}
+:root[data-theme=dark] .prem{background:radial-gradient(90% 60% at 100% 0,rgba(255,230,0,.075),rgba(255,230,0,0) 70%) padding-box,linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(150deg,rgba(255,230,0,.62),var(--line) 46%) border-box}
+/* side by side, the rows line up across the three cards: names, prices, lists and buttons */
+@media (min-width:900px){@supports (grid-template-rows:subgrid){
+.plans{row-gap:0}
+.plan{display:grid;grid-row:span 5;grid-template-rows:subgrid}
+.plan>*{align-self:start}
+.plan .ticks{margin-bottom:0}
+.plan .btn{align-self:end;margin-top:28px}
+}}
+.solo{position:relative;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,4fr) max-content;grid-template-areas:"main feat buy";align-items:start;gap:28px clamp(28px,3.6vw,56px);margin-top:clamp(20px,2.6vw,30px);padding:clamp(26px,3.2vw,40px) clamp(24px,3.2vw,40px) clamp(26px,3.2vw,40px) clamp(30px,3.6vw,46px);border-radius:24px;background:var(--alt);transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.solo::before{content:"";position:absolute;left:0;top:26px;bottom:26px;width:5px;border-radius:0 5px 5px 0;background:var(--yellow)}
+.solo-main{grid-area:main}
+.solo-tag{display:inline-block;margin-bottom:16px;padding:4px 12px;border:1px solid var(--edge);border-radius:999px;font-size:13px;font-weight:600;line-height:1.5}
+.solo h3{font-size:clamp(24px,2.3vw,30px);line-height:1.1;font-weight:700;letter-spacing:-.025em}
+:lang(ru) .solo h3{letter-spacing:-.018em}
+.solo-d{margin-top:10px;max-width:42ch;color:var(--muted);text-wrap:pretty}
+.solo .ticks{grid-area:feat;margin:0;padding:0;border-top:0}
+.solo .ticks svg{background:var(--card);box-shadow:inset 0 0 0 1px var(--line)}
+.solo-buy{grid-area:buy;display:grid;justify-items:end;gap:20px}
+.motion .m-nav:not([hidden]) nav a:nth-child(6){animation-delay:.2s}
+/* six menu links: a little less space between them on narrow laptops so none breaks onto two lines */
+@media (min-width:860px) and (max-width:959px){.links a{padding-inline:9px}.links a::after{left:9px;right:9px}}
+@media (hover:hover){
+.plan:hover{border-color:var(--edge)}
+.plan.feat:hover{border-color:var(--panel-edge)}
+.prem:hover{border-color:transparent}
+.solo:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+html:not(.motion) .plan:hover,html:not(.motion) .solo:hover{transform:none}
+}
+@media (max-width:1023px){
+.solo{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"main feat" "buy buy"}
+.solo-buy{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 24px;padding-top:24px;border-top:1px solid var(--line)}
+}
+@media (max-width:899px){
+.plans{grid-template-columns:minmax(0,1fr);max-width:600px;row-gap:34px}
+.solo{max-width:600px}
+}
+@media (max-width:719px){
+.plan .badge{left:22px}
+.solo{grid-template-columns:minmax(0,1fr);grid-template-areas:"main" "feat" "buy";gap:24px}
+.solo .ticks{padding-top:20px;border-top:1px solid var(--line)}
+.solo-buy{display:grid;justify-content:stretch;justify-items:stretch;align-items:start;gap:18px;padding-top:0;border-top:0}
+.solo-buy .btn{width:100%}
+}
+
+/* responsive */
+@media (max-width:1023px){#cta-top{display:none}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:899px){
+.about-grid{grid-template-columns:minmax(0,1fr);gap:28px}
+.about-body{padding-top:0}
+.hero-in{grid-template-columns:minmax(0,1fr);grid-template-rows:auto;grid-template-areas:"lead" "stage" "facts";gap:32px}
+.sec-head,.faq-grid,.cta-box{grid-template-columns:minmax(0,1fr)}
+.pkgs{grid-template-columns:minmax(0,1fr);max-width:600px}
+.faq-side{position:static}
+.foot-in{grid-template-columns:1fr 1fr}
+.foot-brand{grid-column:1/-1}
+}
+@media (max-width:859px){.links{display:none}.menu-btn{display:block}.top-in{gap:12px}}
+@media (max-width:719px){
+.smp-head{grid-template-columns:minmax(0,1fr)}
+.pages{grid-template-columns:1fr 1fr;gap:22px 16px}
+.pages .pg:first-child{grid-column:1/-1}
+.pages.p4{grid-template-columns:1fr 1fr}
+.pages.p4 .pg:first-child{grid-column:auto}
+.pg img{box-shadow:6px 6px 0 var(--b-shadow)}
+.cards{grid-template-columns:minmax(0,1fr)}
+.route{grid-template-columns:minmax(0,1fr);gap:30px}
+.route li{min-height:46px;padding:0 0 0 64px}
+.route li:not(:last-child)::after{top:56px;bottom:-24px;left:22px;right:auto;width:2px;height:auto;transform-origin:50% 0}
+.rv-on .route:not(.in):not(.seen) li::after{scale:1 0}
+.ctas .btn{flex:1 1 auto}
+.facts{gap:12px}
+.chip{font-size:13px;padding:5px 6px 5px 10px}
+.ans{padding-right:0}
+.pkg{padding:26px 22px}
+.badge{top:22px;right:22px}
+}
+
+/* motion: load sequence, floating desk, ticker, reveals */
+.motion .top{animation:fadeDown .8s var(--ease) backwards}
+.motion .pill{animation:rise .8s var(--ease) .05s backwards}
+.motion .pulse{animation:pulse 2.4s ease-out 1.6s infinite}
+.motion .h1w .w>span{animation:wordUp 1s var(--ease) calc(.12s + var(--i,0) * .06s) backwards}
+.motion .intro{animation:rise .9s var(--ease) .5s backwards}
+.motion .hero .ctas{animation:rise .9s var(--ease) .6s backwards}
+.motion .facts li{animation:rise .9s var(--ease) .7s backwards}
+.motion .facts li:nth-child(2){animation-delay:.78s}
+.motion .facts li:nth-child(3){animation-delay:.86s}
+.motion .stage{animation:stageIn 1.1s var(--ease) .05s backwards}
+.motion .pf{animation:fanIn 1.25s cubic-bezier(.2,.8,.2,1.04) .42s backwards}
+.motion .pf-c{animation-delay:.22s}
+.motion .pf-b{animation-delay:.56s}
+.motion .bob{animation:bob 7s ease-in-out 2s infinite}
+.motion .pf-a .bob{animation-duration:7.6s;animation-delay:2.3s}
+.motion .pf-b .bob{animation-duration:6.8s;animation-delay:2.6s}
+.motion .floor{animation:bIn 1.4s ease .5s backwards}
+.motion .chip{animation:pop .7s cubic-bezier(.3,1.5,.5,1) 1.1s backwards,bob 6s ease-in-out 2.2s infinite}
+.motion .chip-b{animation-delay:1.25s,2.7s}
+.motion .chip-c{animation-delay:1.4s,3.2s}
+.motion .mq-track{animation:marquee 46s linear infinite}
+.motion .cta-box::before{animation:drift 16s ease-in-out infinite}
+.motion .m-nav:not([hidden]){animation:menuIn .35s var(--ease)}
+.motion .m-nav:not([hidden]) nav a{animation:rise .5s var(--ease) backwards}
+.motion .m-nav:not([hidden]) nav a:nth-child(2){animation-delay:.04s}
+.motion .m-nav:not([hidden]) nav a:nth-child(3){animation-delay:.08s}
+.motion .m-nav:not([hidden]) nav a:nth-child(4){animation-delay:.12s}
+.motion .m-nav:not([hidden]) nav a:nth-child(5){animation-delay:.16s}
+.motion .qa[open] .ans{animation:faqIn .45s var(--ease)}
+.motion .viewer[open]{animation:vIn .4s var(--ease)}
+.motion .viewer[open]::backdrop{animation:bIn .4s ease}
+.rv-on .rv:not(.in):not(.seen){opacity:0}
+.rv-on .rv.in{animation:rise .9s var(--ease) var(--d,0s) backwards}
+@supports (interpolate-size:allow-keywords){
+.motion{interpolate-size:allow-keywords}
+.motion .qa::details-content{block-size:0;overflow:clip;transition:block-size .4s var(--ease),content-visibility .4s allow-discrete}
+.motion .qa[open]::details-content{block-size:auto}
+}
+@keyframes rise{from{opacity:0;translate:0 26px}}
+@keyframes wordUp{from{translate:0 115%}}
+@keyframes fadeDown{from{opacity:0;translate:0 -100%}}
+@keyframes stageIn{from{opacity:0;scale:.96}}
+@keyframes fanIn{from{opacity:0;transform:translate(0px,calc(var(--sw) * .3)) rotate(0deg) scale(.88)}}
+@keyframes bob{50%{transform:translateY(-9px)}}
+@keyframes pop{from{opacity:0;scale:.5}}
+@keyframes bIn{from{opacity:0}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,230,0,.65)}75%,100%{box-shadow:0 0 0 9px rgba(255,230,0,0)}}
+@keyframes marquee{to{transform:translateX(-50%)}}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-140px,100px) scale(1.2)}}
+@keyframes menuIn{from{opacity:0;translate:0 -10px}}
+@keyframes faqIn{from{opacity:0;translate:0 -8px}}
+@keyframes vIn{from{opacity:0;translate:0 18px;scale:.97}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+@media print{.top,.mq,.viewer,.giant,.skip{display:none!important}.rv{opacity:1!important}.smp,.stage,.pg{break-inside:avoid}}
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#main" data-k="skip">Asosiy qismga o‘tish</a>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#top"><span class="mark" aria-hidden="true">N</span><span>Nodir</span></a>
+    <nav class="links" aria-label="Bo‘limlar" data-ka="nav_aria">
+      <a href="#namunalar" data-k="nav_samples">Namunalar</a>
+      <a href="#haqimda" data-k="nav_about">Men haqimda</a>
+      <a href="#xizmatlar" data-k="nav_services">Xizmatlar</a>
+      <a href="#narxlar" data-k="nav_price">Narxlar</a>
+      <a href="#savollar" data-k="nav_faq">Savollar</a>
+      <a href="#aloqa" data-k="nav_contact">Aloqa</a>
+    </nav>
+    <div class="langs" role="group" aria-label="Til" data-ka="lang_aria">
+      <button type="button" data-l="uz" aria-pressed="true">UZ</button><button type="button" data-l="ru" aria-pressed="false">RU</button><button type="button" data-l="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn dark sm" id="cta-top" href="#aloqa" data-tg><span data-k="cta_contact">Bog‘lanish</span></a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="m-nav" aria-label="Menyu" data-ka="menu"><span></span><span></span></button>
+  </div>
+  <div class="m-nav" id="m-nav" hidden>
+    <nav aria-label="Bo‘limlar" data-ka="nav_aria">
+      <a href="#namunalar"><span data-k="nav_samples">Namunalar</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#haqimda"><span data-k="nav_about">Men haqimda</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#xizmatlar"><span data-k="nav_services">Xizmatlar</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#narxlar"><span data-k="nav_price">Narxlar</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#savollar"><span data-k="nav_faq">Savollar</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#aloqa"><span data-k="nav_contact">Aloqa</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </nav>
+    <a class="btn yellow" href="#aloqa" data-tg="label"><span data-k="cta_contact">Bog‘lanish</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <span class="progress" aria-hidden="true"></span>
+</header>
+
+<main id="main">
+<section class="hero" data-spy="">
+  <div class="wrap hero-in">
+    <div class="lead">
+      <p class="eyebrow pill"><span class="pulse" aria-hidden="true"></span><span data-k="hero_e">Nodir · portfolio va CV dizayneri</span></p>
+      <h1 id="h1" data-k="h1">Yutuqlaringizni kuchli portfolioga aylantiraman</h1>
+      <p class="intro" data-k="intro">Universitet, grant, olimpiada yoki kursga topshirayotgan o‘quvchilar uchun tartibli va chiroyli PDF portfolio hamda CV tayyorlayman.</p>
+      <div class="ctas">
+        <a class="btn yellow" id="cta-main" href="#aloqa" data-tg="label"><span data-k="cta_contact">Bog‘lanish</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn line" href="#namunalar"><span data-k="cta_samples">Namunalarni ko‘rish</span><svg class="arr down" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v11M5.5 11l4.5 4.5 4.5-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+    <div class="stage" role="group" aria-label="Namuna portfoliolar" data-ka="stage_aria">
+      <div class="stage-in">
+        <span class="floor" aria-hidden="true"></span>
+        <div class="fan">
+          <a class="pf pf-a" href="#s-aziza" aria-label="Namuna: Aziza Karimova" data-ka="pf_a"><span class="bob"><span class="lift"><img class="sheet s3" src="samples/aziza-3-s.webp" width="560" height="793" alt="" draggable="false"><img class="sheet s2" src="samples/aziza-2-s.webp" width="560" height="793" alt="" draggable="false"><img class="sheet s1" src="samples/aziza-1-s.webp" width="560" height="793" alt="" draggable="false"></span></span></a>
+          <a class="pf pf-c" href="#s-madina" aria-label="Namuna: Madina Yusupova" data-ka="pf_c"><span class="bob"><span class="lift"><img class="sheet s3" src="samples/madina-3-s.webp" width="560" height="793" alt="" draggable="false"><img class="sheet s2" src="samples/madina-2-s.webp" width="560" height="793" alt="" draggable="false"><img class="sheet s1" src="samples/madina-1-s.webp" width="560" height="793" alt="" draggable="false"></span></span></a>
+          <a class="pf pf-b" href="#s-jasur" aria-label="Namuna: Jasur Rahimov" data-ka="pf_b"><span class="bob"><span class="lift"><img class="sheet s3" src="samples/jasur-3-s.webp" width="560" height="793" alt="" draggable="false"><img class="sheet s2" src="samples/jasur-2-s.webp" width="560" height="793" alt="" draggable="false"><img class="sheet s1" src="samples/jasur-1-s.webp" width="560" height="793" alt="" draggable="false"></span></span></a>
+        </div>
+        <span class="chip chip-a" aria-hidden="true"><b data-k="st_a">Klassik</b><i>EN</i></span>
+        <span class="chip chip-b" aria-hidden="true"><b data-k="st_b">Zamonaviy</b><i>UZ</i></span>
+        <span class="chip chip-c" aria-hidden="true"><b data-k="st_c">Ijodiy</b><i>RU</i></span>
+      </div>
+    </div>
+    <ul class="facts">
+      <li><b>3</b><span data-k="f1">uslubdagi namuna</span></li>
+      <li><b>3</b><span data-k="f2">til: o‘zbek, rus, ingliz</span></li>
+      <li><b>PDF</b><span data-k="f3">va shaxsiy veb-sahifa</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="mq" aria-label="Portfolio nima uchun kerak" data-ka="mq_aria">
+  <div class="mq-track">
+    <ul class="mq-set"><li data-k="g1">Universitetga topshirish</li><li data-k="g2">Grant va stipendiya</li><li data-k="g3">Olimpiadalar</li><li data-k="g4">Yozgi maktablar</li><li data-k="g5">IT akademiyalar</li><li data-k="g6">San’at kollejlari</li><li data-k="g7">Chet elda o‘qish</li><li data-k="g8">Volontyorlik dasturlari</li></ul>
+    <ul class="mq-set" aria-hidden="true"><li data-k="g1">Universitetga topshirish</li><li data-k="g2">Grant va stipendiya</li><li data-k="g3">Olimpiadalar</li><li data-k="g4">Yozgi maktablar</li><li data-k="g5">IT akademiyalar</li><li data-k="g6">San’at kollejlari</li><li data-k="g7">Chet elda o‘qish</li><li data-k="g8">Volontyorlik dasturlari</li></ul>
+  </div>
+</section>
+
+<div id="namunalar" data-spy="namunalar">
+<section class="sec smp-intro" aria-labelledby="smp-h">
+  <div class="wrap sec-head">
+    <div class="rv"><p class="eyebrow"><b>01</b><span data-k="e_smp">Namunalar</span></p><h2 id="smp-h" data-k="smp_h">Har bir maqsad uchun o‘z uslubi</h2></div>
+    <p class="rv d1 muted" data-k="smp_s">Pastda uchta namuna portfolio bor: sahifani bossangiz, kattalashadi. Namunadagi o‘quvchilar va ma’lumotlar o‘ylab topilgan.</p>
+  </div>
+</section>
+<section class="smp" id="s-aziza" aria-labelledby="n-aziza">
+  <div class="wrap">
+    <div class="smp-head">
+      <div class="rv"><p class="b-label"><span class="b-no">01</span><span data-k="l_a">Klassik uslub, ingliz tilida</span></p><h3 class="b-name" id="n-aziza">Aziza Karimova</h3></div>
+      <div class="rv d1"><p class="b-desc" data-k="d_a">Chet eldagi universitetlarga topshirayotgan 11-sinf o‘quvchisi uchun: muqova, CV, IELTS va SAT natijalari grafigi, yutuqlar va sertifikatlar nusxalari.</p><ul class="chips"><li data-k="c_4p">4 sahifa</li><li data-k="c_a1">Test natijalari</li><li data-k="c_a3">Sertifikatlar</li></ul></div>
+    </div>
+    <div class="pages p4">
+      <button class="pg rv" type="button"><img src="samples/aziza-1-s.webp" data-full="samples/aziza-1.webp" width="560" height="793" loading="lazy" decoding="async" alt="Aziza Karimova: Muqova" data-pg="pg_cover" data-name="Aziza Karimova"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.5 12.5L17 17M8.5 6v5M6 8.5h5" stroke="currentColor" stroke-width="2"/></svg></span><span class="pg-cap" data-k="pg_cover">Muqova</span></button>
+      <button class="pg rv d1" type="button"><img src="samples/aziza-2-s.webp" data-full="samples/aziza-2.webp" width="560" height="793" loading="lazy" decoding="async" alt="Aziza Karimova: Rezyume" data-pg="pg_cv" data-name="Aziza Karimova"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.5 12.5L17 17M8.5 6v5M6 8.5h5" stroke="currentColor" stroke-width="2"/></svg></span><span class="pg-cap" data-k="pg_cv">Rezyume</span></button>
+      <button class="pg rv d2" type="button"><img src="samples/aziza-3-s.webp" data-full="samples/aziza-3.webp" width="560" height="793" loading="lazy" decoding="async" alt="Aziza Karimova: Yutuqlar" data-pg="pg_3a" data-name="Aziza Karimova"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.5 12.5L17 17M8.5 6v5M6 8.5h5" stroke="currentColor" stroke-width="2"/></svg></span><span class="pg-cap" data-k="pg_3a">Yutuqlar</span></button>
+      <button class="pg rv d3" type="button"><img src="samples/aziza-4-s.webp" data-full="samples/aziza-4.webp" width="560" height="793" loading="lazy" decoding="async" alt="Aziza Karimova: Sertifikatlar" data-pg="pg_4a" data-name="Aziza Karimova"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.5 12.5L17 17M8.5 6v5M6 8.5h5" stroke="currentColor" stroke-width="2"/></svg></span><span class="pg-cap" data-k="pg_4a">Sertifikatlar</span></button>
+    </div>
+  </div>
+</section>
+
+<section class="smp" id="s-jasur" aria-labelledby="n-jasur">
+  <div class="wrap">
+    <div class="smp-head">
+      <div class="rv"><p class="b-label"><span class="b-no">02</span><span data-k="l_b">Zamonaviy uslub, o‘zbek tilida</span></p><h3 class="b-name" id="n-jasur">Jasur Rahimov</h3></div>
+      <div class="rv d1"><p class="b-desc" data-k="d_b">IT yo‘nalishidagi 10-sinf o‘quvchisi uchun: muqova, ko‘nikmalar shkalasi bilan rezyume va loyihalar skrinshotlari: Telegram bot, sayt va ilova dizayni.</p><ul class="chips"><li data-k="c_3p">3 sahifa</li><li data-k="c_b1">Loyihalar</li><li data-k="c_b3">Skrinshotlar</li></ul></div>
+    </div>
+    <div class="pages">
+      <button class="pg rv" type="button"><img src="samples/jasur-1-s.webp" data-full="samples/jasur-1.webp" width="560" height="793" loading="lazy" decoding="async" alt="Jasur Rahimov: Muqova" data-pg="pg_cover" data-name="Jasur Rahimov"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.5 12.5L17 17M8.5 6v5M6 8.5h5" stroke="currentColor" stroke-width="2"/></svg></span><span class="pg-cap" data-k="pg_cover">Muqova</span></button>
+      <button class="pg rv d1" type="button"><img src="samples/jasur-2-s.webp" data-full="samples/jasur-2.webp" width="560" height="793" loading="lazy" decoding="async" alt="Jasur Rahimov: Rezyume" data-pg="pg_cv" data-name="Jasur Rahimov"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.5 12.5L17 17M8.5 6v5M6 8.5h5" stroke="currentColor" stroke-width="2"/></svg></span><span class="pg-cap" data-k="pg_cv">Rezyume</span></button>
+      <button class="pg rv d2" type="button"><img src="samples/jasur-3-s.webp" data-full="samples/jasur-3.webp" width="560" height="793" loading="lazy" decoding="async" alt="Jasur Rahimov: Loyihalar" data-pg="pg_3b" data-name="Jasur Rahimov"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.5 12.5L17 17M8.5 6v5M6 8.5h5" stroke="currentColor" stroke-width="2"/></svg></span><span class="pg-cap" data-k="pg_3b">Loyihalar</span></button>
+    </div>
+  </div>
+</section>
+
+<section class="smp" id="s-madina" aria-labelledby="n-madina">
+  <div class="wrap">
+    <div class="smp-head">
+      <div class="rv"><p class="b-label"><span class="b-no">03</span><span data-k="l_c">Ijodiy uslub, rus tilida</span></p><h3 class="b-name" id="n-madina">Madina Yusupova</h3></div>
+      <div class="rv d1"><p class="b-desc" data-k="d_c">Rassomchilikka qiziqadigan 9-sinf o‘quvchisi uchun: akvarel muqova, rezyume hamda akvarel, guash, qalam va raqamli ishlar galereyasi.</p><ul class="chips"><li data-k="c_4p">4 sahifa</li><li data-k="c_c1">Ishlar galereyasi</li><li data-k="c_c3">6 ta asar</li></ul></div>
+    </div>
+    <div class="pages p4">
+      <button class="pg rv" type="button"><img src="samples/madina-1-s.webp" data-full="samples/madina-1.webp" width="560" height="793" loading="lazy" decoding="async" alt="Madina Yusupova: Muqova" data-pg="pg_cover" data-name="Madina Yusupova"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.5 12.5L17 17M8.5 6v5M6 8.5h5" stroke="currentColor" stroke-width="2"/></svg></span><span class="pg-cap" data-k="pg_cover">Muqova</span></button>
+      <button class="pg rv d1" type="button"><img src="samples/madina-2-s.webp" data-full="samples/madina-2.webp" width="560" height="793" loading="lazy" decoding="async" alt="Madina Yusupova: Rezyume" data-pg="pg_cv" data-name="Madina Yusupova"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.5 12.5L17 17M8.5 6v5M6 8.5h5" stroke="currentColor" stroke-width="2"/></svg></span><span class="pg-cap" data-k="pg_cv">Rezyume</span></button>
+      <button class="pg rv d2" type="button"><img src="samples/madina-3-s.webp" data-full="samples/madina-3.webp" width="560" height="793" loading="lazy" decoding="async" alt="Madina Yusupova: Ishlar" data-pg="pg_3c" data-name="Madina Yusupova"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.5 12.5L17 17M8.5 6v5M6 8.5h5" stroke="currentColor" stroke-width="2"/></svg></span><span class="pg-cap" data-k="pg_3c">Ishlar</span></button>
+      <button class="pg rv d3" type="button"><img src="samples/madina-4-s.webp" data-full="samples/madina-4.webp" width="560" height="793" loading="lazy" decoding="async" alt="Madina Yusupova: Ishlar (davomi)" data-pg="pg_4c" data-name="Madina Yusupova"><span class="zoom" aria-hidden="true"><svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.5 12.5L17 17M8.5 6v5M6 8.5h5" stroke="currentColor" stroke-width="2"/></svg></span><span class="pg-cap" data-k="pg_4c">Ishlar (davomi)</span></button>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<section class="sec" id="haqimda" data-spy="haqimda" aria-labelledby="about-h">
+  <div class="wrap about-grid">
+    <div class="about-side rv">
+      <p class="eyebrow"><b>02</b><span data-k="e_about">Men haqimda</span></p>
+      <h2 id="about-h"><span class="hi" data-k="about_hi">Salom! Men Nodir,</span> <span data-k="about_h">ushbu portfolio xizmatining asoschisiman.</span></h2>
+      <div class="founder">
+        <span class="mark" aria-hidden="true">N</span>
+        <p><span class="f-name">Nodir</span><span class="f-role" data-k="about_role">Asoschi · portfolio va CV dizayneri</span></p>
+      </div>
+    </div>
+    <div class="about-body">
+      <p class="rv d1" data-k="about_p1">Har bir o‘quvchining professional tarzda ko‘rsatishga arziydigan salohiyati, yutuqlari va intilishlari bor, deb ishonaman. Biroq hamma ham o‘z tajribasini tartibga solib, uni kuchli portfolioga aylantirishni bilavermaydi.</p>
+      <p class="about-turn rv d1" data-k="about_p2">Aynan shu yerda men yordam beraman.</p>
+      <p class="rv d1" data-k="about_p3">O‘quvchilarning ta’limi, ko‘nikmalari, yutuqlari va kelajakdagi maqsadlarini professional dizayndagi portfolioga aylantiraman. Bunday portfolio ularning kimligini va qayerga intilayotganini ko‘rsatib beradi.</p>
+      <blockquote class="goal rv d2"><p data-k="about_goal">Maqsadim oddiy: o‘zini professional tarzda taqdim etish imkoniyati har bir o‘quvchiga ochiq bo‘lsin.</p></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" id="afzalliklar" data-spy="" aria-labelledby="adv-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><p class="eyebrow"><b>03</b><span data-k="e_adv">Afzalliklar</span></p><h2 id="adv-h" data-k="adv_h">Nega men bilan ishlash qulay</h2></div>
+      <p class="rv d1 muted" data-k="adv_s">Har bir portfolio o‘quvchining maqsadiga qarab tuziladi.</p>
+    </div>
+    <ul class="cards">
+      <li class="rv"><article class="card"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg></span><h3 data-k="a1_h">Shaxsiy yondashuv</h3><p data-k="a1_d">Sahifalar maqsadingiz va yutuqlaringizga qarab tuziladi, shablondan ko‘chirilmaydi.</p></article></li>
+      <li class="rv d1"><article class="card"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.3 2.3 3.5 5.1 3.5 8.5s-1.2 6.2-3.5 8.5c-2.3-2.3-3.5-5.1-3.5-8.5s1.2-6.2 3.5-8.5z"/></svg></span><h3 data-k="a2_h">Uch tilda</h3><p data-k="a2_d">O‘zbek, rus yoki ingliz tilida, kerak bo‘lsa ikki tilda birga.</p></article></li>
+      <li class="rv d2"><article class="card"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3.5H7.5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V8z"/><path d="M14 3.5V8h4.5M9 13h6M9 16.5h4"/></svg></span><h3 data-k="a3_h">Tayyor PDF</h3><p data-k="a3_d">Chop etish, arizaga biriktirish va Telegramda yuborish uchun qulay.</p></article></li>
+      <li class="rv d3"><article class="card"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4.2L15.6 5.2a2 2 0 0 1 2.8 0l.4.4a2 2 0 0 1 0 2.8L8.2 19z"/><path d="M13.5 7.3l3.2 3.2"/></svg></span><h3 data-k="a4_h">Tuzatishlar bilan</h3><p data-k="a4_d">Tayyor faylni ko‘rib chiqasiz, men o‘zgartirishlaringizni kiritaman.</p></article></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="xizmatlar" data-spy="xizmatlar" aria-labelledby="svc-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><p class="eyebrow"><b>04</b><span data-k="e_svc">Xizmatlar</span></p><h2 id="svc-h" data-k="svc_h">Sizga qaysi biri kerak?</h2></div>
+      <p class="rv d1 muted" data-k="svc_s">Uchalasi ham o‘zbek, rus yoki ingliz tilida tayyorlanadi.</p>
+    </div>
+    <div class="pkgs">
+      <article class="pkg rv">
+        <p class="pkg-n">01</p><h3 data-k="s1_h">CV</h3><p class="pkg-u" data-k="s1_u">Kurs, grant yoki ishga topshirish uchun</p>
+        <ul class="ticks"><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="s1_f1">Bir sahifali CV</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="s1_f2">Ta’lim, yutuqlar va ko‘nikmalar</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="s1_f3">Chop etishga tayyor PDF</span></li></ul>
+        <div class="pkg-foot"><p class="price" data-price="cv" hidden><span data-k="price_l">Narxi</span><b></b></p><a class="btn line" href="#aloqa" data-tg><span data-k="order">Buyurtma berish</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      </article>
+      <article class="pkg feat rv d1">
+        <span class="badge" data-k="badge">Tavsiya etaman</span>
+        <p class="pkg-n">02</p><h3 data-k="s2_h">Portfolio</h3><p class="pkg-u" data-k="s2_u">Universitet va olimpiadaga topshirish uchun</p>
+        <ul class="ticks"><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="s2_f1">Muqova va CV</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="s2_f2">Yutuqlar va sertifikatlar</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="s2_f3">Loyihalar yoki ishlar galereyasi</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="s2_f4">Chop etishga tayyor PDF</span></li></ul>
+        <div class="pkg-foot"><p class="price" data-price="portfolio" hidden><span data-k="price_l">Narxi</span><b></b></p><a class="btn yellow" href="#aloqa" data-tg><span data-k="order">Buyurtma berish</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      </article>
+      <article class="pkg rv d2">
+        <p class="pkg-n">03</p><h3 data-k="s3_h">Portfolio va shaxsiy sahifa</h3><p class="pkg-u" data-k="s3_u">Havolani arizalar va Telegramda ulashish uchun</p>
+        <ul class="ticks"><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="s3_f1">To‘liq PDF portfolio</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="s3_f2">Havolasi bor shaxsiy veb-sahifa</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="s3_f3">Telefonda ham qulay ko‘rinadi</span></li></ul>
+        <div class="pkg-foot"><p class="price" data-price="site" hidden><span data-k="price_l">Narxi</span><b></b></p><a class="btn line" href="#aloqa" data-tg><span data-k="order">Buyurtma berish</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" id="jarayon" data-spy="" aria-labelledby="how-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><p class="eyebrow"><b>05</b><span data-k="e_how">Jarayon</span></p><h2 id="how-h" data-k="how_h">Qanday ishlayman</h2></div>
+      <p class="rv d1 muted" data-k="how_s">Uch qadam, hammasi Telegram orqali.</p>
+    </div>
+    <ol class="route rv">
+      <li><h3 data-k="st1_h">Ma’lumot yuborasiz</h3><p data-k="st1_d">Telegramda ism, sinf, maqsad hamda sertifikat va yutuqlaringiz rasmini yuborasiz.</p></li>
+      <li><h3 data-k="st2_h">Uslub tanlaysiz</h3><p data-k="st2_d">Namunalardan birini tanlaysiz yoki o‘zingizga yoqqan ranglarni aytasiz.</p></li>
+      <li><h3 data-k="st3_h">PDF tayyor</h3><p data-k="st3_d">Tayyor faylni ko‘rib chiqasiz, tuzatishlarni kiritib, yakuniy PDFni yuboraman.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="narxlar" data-spy="narxlar" aria-labelledby="price-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><p class="eyebrow"><b>06</b><span data-k="e_price">Narxlar</span></p><h2 id="price-h" data-k="p_h">Paketlar va narxlar</h2></div>
+      <p class="rv d1 muted" data-k="p_s">Maqsadingizga mos paketni tanlang va buyurtmani Telegram orqali yuboring.</p>
+    </div>
+    <div class="plans">
+      <article class="pkg plan rv" aria-labelledby="pl-1">
+        <h3 id="pl-1">Starter</h3>
+        <p class="pkg-u" data-k="p1_d">O‘quvchilar uchun professional ilk qadam.</p>
+        <p class="p-price"><b data-sum="starter">109 000</b><span data-k="p_cur">so‘m</span></p>
+        <ul class="ticks"><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="p1_f1">Asosiy shaxsiy portfolio</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="p1_f2">Ta’lim ma’lumotlari</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="p1_f3">Ko‘nikmalar</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="p1_f4">Yutuqlar</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="p1_f5">PDF portfolio</span></li></ul>
+        <a class="btn line" href="#aloqa" data-order="starter"><span data-k="p_order">Buyurtma berish</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </article>
+      <article class="pkg plan feat rv d1" aria-labelledby="pl-2">
+        <span class="badge" data-k="p_pop">Eng ommabop</span>
+        <h3 id="pl-2">Professional</h3>
+        <p class="pkg-u" data-k="p2_d">Akademik va karyera imkoniyatlari uchun to‘liq paket.</p>
+        <p class="p-price"><b data-sum="professional">249 000</b><span data-k="p_cur">so‘m</span></p>
+        <ul class="ticks"><li class="inc"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 5.5v9M5.5 10h9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><span data-k="p2_inc">Starter paketidagi hammasi</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="p2_f1">Professional CV / rezyume</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="p2_f2">Loyihalar portfoliosi</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="p2_f3">Personal statement (shaxsiy insho)</span></li></ul>
+        <a class="btn yellow" href="#aloqa" data-order="professional"><span data-k="p_order">Buyurtma berish</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </article>
+      <article class="pkg plan prem rv d2" aria-labelledby="pl-3">
+        <h3 id="pl-3">Premium</h3>
+        <p class="pkg-u" data-k="p3_d">Ariza topshirishga tayyor to‘liq shaxsiy taqdimot.</p>
+        <p class="p-price"><b data-sum="premium">299 000</b><span data-k="p_cur">so‘m</span></p>
+        <ul class="ticks"><li class="inc"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 5.5v9M5.5 10h9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><span data-k="p3_inc">Professional paketidagi hammasi</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="p3_f1">Motivatsion xat</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="p3_f2">Premium individual dizayn</span></li></ul>
+        <a class="btn dark" href="#aloqa" data-order="premium"><span data-k="p_order">Buyurtma berish</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </article>
+    </div>
+    <article class="solo rv" aria-labelledby="pl-cv">
+      <div class="solo-main">
+        <p class="solo-tag" data-k="cv_tag">Alohida xizmat</p>
+        <h3 id="pl-cv" data-k="cv_h">CV / rezyume tayyorlash</h3>
+        <p class="solo-d" data-k="cv_d">To‘liq portfolio sotib olmasdan, professional dizaynli CV oling.</p>
+      </div>
+      <ul class="ticks"><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="cv_f1">Professional CV tuzilmasi</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="cv_f2">Zamonaviy va toza dizayn</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="cv_f3">Ta’lim va ko‘nikmalar</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="cv_f4">Tajriba va yutuqlar</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 6.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-k="cv_f5">Tayyor PDF fayl</span></li></ul>
+      <div class="solo-buy">
+        <p class="p-price"><b data-sum="cv">49 000</b><span data-k="p_cur">so‘m</span></p>
+        <a class="btn dark" href="#aloqa" data-order="cv"><span data-k="cv_order">CV buyurtma qilish</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="sec" id="savollar" data-spy="savollar" aria-labelledby="faq-h">
+  <div class="wrap faq-grid">
+    <div class="faq-side rv">
+      <p class="eyebrow"><b>07</b><span data-k="e_faq">Savollar</span></p>
+      <h2 id="faq-h" data-k="faq_h">Ko‘p so‘raladigan savollar</h2>
+      <p class="muted" data-k="faq_s">Javobini topa olmasangiz, Telegramga yozing.</p>
+      <a class="btn line sm" href="#aloqa" data-tg><span data-k="faq_cta">Savol berish</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <div class="faq-list">
+      
+      <details class="qa rv" name="faq" open><summary><span data-k="fq1">Qanday ma’lumotlar yuborishim kerak?</span><span class="pm" aria-hidden="true"></span></summary><div class="ans"><p data-k="fa1">Ism, sinf, maqsadingiz (qayerga topshirasiz), yutuqlar ro‘yxati hamda sertifikat va ishlaringiz rasmlari. Hammasini Telegramda yuborishingiz mumkin.</p></div></details>
+      <details class="qa rv d1" name="faq"><summary><span data-k="fq2">Portfolio qaysi tilda bo‘ladi?</span><span class="pm" aria-hidden="true"></span></summary><div class="ans"><p data-k="fa2">O‘zbek, rus yoki ingliz tilida. Chet elga topshirish uchun odatda ingliz tilida tayyorlanadi.</p></div></details>
+      <details class="qa rv d2" name="faq"><summary><span data-k="fq3">Fayl qanday formatda beriladi?</span><span class="pm" aria-hidden="true"></span></summary><div class="ans"><p data-k="fa3">PDF formatida: chop etish, emailga biriktirish va Telegramda yuborish uchun qulay. Xohlasangiz, havolali shaxsiy veb-sahifa ham qilaman.</p></div></details>
+      <details class="qa rv d3" name="faq"><summary><span data-k="fq4">Tayyor bo‘lgach o‘zgartirsa bo‘ladimi?</span><span class="pm" aria-hidden="true"></span></summary><div class="ans"><p data-k="fa4">Ha. Tayyor faylni ko‘rib chiqasiz, kerakli tuzatishlarni kiritib, yakuniy PDFni yuboraman.</p></div></details>
+      <details class="qa rv d4" name="faq"><summary><span data-k="fq5">Narxi qancha?</span><span class="pm" aria-hidden="true"></span></summary><div class="ans"><p data-k="fa5">Narx portfolio hajmiga bog‘liq. Telegramga yozing, maqsadingizni aytsangiz, aniq narxni aytaman.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="aloqa" data-spy="aloqa" aria-labelledby="ct-h">
+  <div class="wrap">
+    <div class="cta-box rv">
+      <div>
+        <p class="eyebrow"><b>08</b><span data-k="e_ct">Aloqa</span></p>
+        <h2 id="ct-h" data-k="ct_h">Portfolio yoki CV kerakmi?</h2>
+        <p class="ct-d" data-k="ct_d">Telegramga yozing: maqsadingizni aytsangiz, qaysi uslub mos kelishini birga tanlaymiz.</p>
+        <a class="btn yellow" id="ct-btn" href="#aloqa" data-tg="label" hidden><span data-k="cta_tg">Telegramga yozish</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="ct-card" id="ct-rows"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-in">
+      <div class="foot-brand"><a class="brand" href="#top"><span class="mark" aria-hidden="true">N</span><span>Nodir</span></a><p class="muted" data-k="ft_d">O‘quvchilar uchun portfolio va CV: o‘zbek, rus va ingliz tilida.</p></div>
+      <div><p class="ft-h" data-k="ft_nav">Bo‘limlar</p><nav class="ft-nav" aria-label="Bo‘limlar" data-ka="nav_aria"><a href="#namunalar" data-k="nav_samples">Namunalar</a><a href="#haqimda" data-k="nav_about">Men haqimda</a><a href="#xizmatlar" data-k="nav_services">Xizmatlar</a><a href="#narxlar" data-k="nav_price">Narxlar</a><a href="#savollar" data-k="nav_faq">Savollar</a><a href="#aloqa" data-k="nav_contact">Aloqa</a></nav></div>
+      <div><p class="ft-h" data-k="ft_ct">Aloqa</p><div class="ft-ct" id="ft-ct"></div></div>
+    </div>
+    <div class="legal"><span>© 2026 Nodir</span><span data-k="ft_note">Namunadagi o‘quvchilar va ma’lumotlar o‘ylab topilgan.</span><a class="totop" href="#top"><span data-k="totop">Yuqoriga</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 16V5M5.5 9L10 4.5 14.5 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+  </div>
+  <p class="giant rv" aria-hidden="true">Nodir<span>.</span></p>
+</footer>
+
+<dialog class="viewer" id="viewer" aria-labelledby="v-cap">
+  <div class="v-top"><p id="v-cap"></p><button type="button" class="v-x" id="v-close" aria-label="Yopish" data-ka="close"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
+  <img id="v-img" src="samples/aziza-1-s.webp" width="1100" height="1557" alt="" draggable="false">
+  <div class="v-nav">
+    <button type="button" id="v-prev" aria-label="Oldingi" data-ka="prev"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <span id="v-count">1 / 11</span>
+    <button type="button" id="v-next" aria-label="Keyingi" data-ka="next"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </div>
+</dialog>
+
+<script>
+{
+/* Contact details: fill these in and the buttons and contact rows appear. */
+const CONTACT = { telegram: "iblamenodir", phone: "+998 93 509 47 86", instagram: "" };
+/* Prices (optional), for example cv: "150 000 so‘m". Empty values keep the price line hidden. */
+const PRICES = { cv: "", portfolio: "", site: "" };
+/* Pricing section, in so‘m. Change a number here and all three languages update. */
+const PLAN_PRICES = { starter: 109000, professional: 249000, premium: 299000, cv: 49000 };
+
+const T = {
+uz: {
+skip: "Asosiy qismga o‘tish", nav_aria: "Bo‘limlar", lang_aria: "Til", menu: "Menyu",
+nav_samples: "Namunalar", nav_about: "Men haqimda", nav_services: "Xizmatlar", nav_price: "Narxlar", nav_faq: "Savollar", nav_contact: "Aloqa",
+hero_e: "Nodir · portfolio va CV dizayneri",
+h1: "Yutuqlaringizni kuchli portfolioga aylantiraman",
+intro: "Universitet, grant, olimpiada yoki kursga topshirayotgan o‘quvchilar uchun tartibli va chiroyli PDF portfolio hamda CV tayyorlayman.",
+cta_contact: "Bog‘lanish", cta_tg: "Telegramga yozish", cta_samples: "Namunalarni ko‘rish",
+f1: "uslubdagi namuna", f2: "til: o‘zbek, rus, ingliz", f3: "va shaxsiy veb-sahifa",
+stage_aria: "Namuna portfoliolar", pf_a: "Namuna: Aziza Karimova", pf_b: "Namuna: Jasur Rahimov", pf_c: "Namuna: Madina Yusupova",
+st_a: "Klassik", st_b: "Zamonaviy", st_c: "Ijodiy",
+mq_aria: "Portfolio nima uchun kerak",
+g1: "Universitetga topshirish", g2: "Grant va stipendiya", g3: "Olimpiadalar", g4: "Yozgi maktablar", g5: "IT akademiyalar", g6: "San’at kollejlari", g7: "Chet elda o‘qish", g8: "Volontyorlik dasturlari",
+e_smp: "Namunalar", smp_h: "Har bir maqsad uchun o‘z uslubi",
+smp_s: "Pastda uchta namuna portfolio bor: sahifani bossangiz, kattalashadi. Namunadagi o‘quvchilar va ma’lumotlar o‘ylab topilgan.",
+l_a: "Klassik uslub, ingliz tilida",
+d_a: "Chet eldagi universitetlarga topshirayotgan 11-sinf o‘quvchisi uchun: muqova, CV, IELTS va SAT natijalari grafigi, yutuqlar va sertifikatlar nusxalari.",
+c_3p: "3 sahifa", c_4p: "4 sahifa", c_a1: "Test natijalari", c_a3: "Sertifikatlar",
+l_b: "Zamonaviy uslub, o‘zbek tilida",
+d_b: "IT yo‘nalishidagi 10-sinf o‘quvchisi uchun: muqova, ko‘nikmalar shkalasi bilan rezyume va loyihalar skrinshotlari: Telegram bot, sayt va ilova dizayni.",
+c_b1: "Loyihalar", c_b3: "Skrinshotlar",
+l_c: "Ijodiy uslub, rus tilida",
+d_c: "Rassomchilikka qiziqadigan 9-sinf o‘quvchisi uchun: akvarel muqova, rezyume hamda akvarel, guash, qalam va raqamli ishlar galereyasi.",
+c_c1: "Ishlar galereyasi", c_c3: "6 ta asar",
+pg_cover: "Muqova", pg_cv: "Rezyume", pg_3a: "Yutuqlar", pg_3b: "Loyihalar", pg_3c: "Ishlar", pg_4a: "Sertifikatlar", pg_4c: "Ishlar (davomi)",
+e_about: "Men haqimda", about_hi: "Salom! Men Nodir,", about_h: "ushbu portfolio xizmatining asoschisiman.", about_role: "Asoschi · portfolio va CV dizayneri", about_p1: "Har bir o‘quvchining professional tarzda ko‘rsatishga arziydigan salohiyati, yutuqlari va intilishlari bor, deb ishonaman. Biroq hamma ham o‘z tajribasini tartibga solib, uni kuchli portfolioga aylantirishni bilavermaydi.", about_p2: "Aynan shu yerda men yordam beraman.", about_p3: "O‘quvchilarning ta’limi, ko‘nikmalari, yutuqlari va kelajakdagi maqsadlarini professional dizayndagi portfolioga aylantiraman. Bunday portfolio ularning kimligini va qayerga intilayotganini ko‘rsatib beradi.", about_goal: "Maqsadim oddiy: o‘zini professional tarzda taqdim etish imkoniyati har bir o‘quvchiga ochiq bo‘lsin.",
+e_adv: "Afzalliklar", adv_h: "Nega men bilan ishlash qulay", adv_s: "Har bir portfolio o‘quvchining maqsadiga qarab tuziladi.",
+a1_h: "Shaxsiy yondashuv", a1_d: "Sahifalar maqsadingiz va yutuqlaringizga qarab tuziladi, shablondan ko‘chirilmaydi.",
+a2_h: "Uch tilda", a2_d: "O‘zbek, rus yoki ingliz tilida, kerak bo‘lsa ikki tilda birga.",
+a3_h: "Tayyor PDF", a3_d: "Chop etish, arizaga biriktirish va Telegramda yuborish uchun qulay.",
+a4_h: "Tuzatishlar bilan", a4_d: "Tayyor faylni ko‘rib chiqasiz, men o‘zgartirishlaringizni kiritaman.",
+e_svc: "Xizmatlar", svc_h: "Sizga qaysi biri kerak?", svc_s: "Uchalasi ham o‘zbek, rus yoki ingliz tilida tayyorlanadi.",
+s1_h: "CV", s1_u: "Kurs, grant yoki ishga topshirish uchun", s1_f1: "Bir sahifali CV", s1_f2: "Ta’lim, yutuqlar va ko‘nikmalar", s1_f3: "Chop etishga tayyor PDF",
+s2_h: "Portfolio", s2_u: "Universitet va olimpiadaga topshirish uchun", s2_f1: "Muqova va CV", s2_f2: "Yutuqlar va sertifikatlar", s2_f3: "Loyihalar yoki ishlar galereyasi", s2_f4: "Chop etishga tayyor PDF",
+s3_h: "Portfolio va shaxsiy sahifa", s3_u: "Havolani arizalar va Telegramda ulashish uchun", s3_f1: "To‘liq PDF portfolio", s3_f2: "Havolasi bor shaxsiy veb-sahifa", s3_f3: "Telefonda ham qulay ko‘rinadi",
+badge: "Tavsiya etaman", order: "Buyurtma berish", price_l: "Narxi",
+e_price: "Narxlar", p_h: "Paketlar va narxlar", p_s: "Maqsadingizga mos paketni tanlang va buyurtmani Telegram orqali yuboring.",
+p_pop: "Eng ommabop", p_cur: "so‘m", p_order: "Buyurtma berish", p_msg: "Assalomu alaykum! «{p}» paketini buyurtma qilmoqchiman.",
+p1_d: "O‘quvchilar uchun professional ilk qadam.", p1_f1: "Asosiy shaxsiy portfolio", p1_f2: "Ta’lim ma’lumotlari", p1_f3: "Ko‘nikmalar", p1_f4: "Yutuqlar", p1_f5: "PDF portfolio",
+p2_d: "Akademik va karyera imkoniyatlari uchun to‘liq paket.", p2_inc: "Starter paketidagi hammasi", p2_f1: "Professional CV / rezyume", p2_f2: "Loyihalar portfoliosi", p2_f3: "Personal statement (shaxsiy insho)",
+p3_d: "Ariza topshirishga tayyor to‘liq shaxsiy taqdimot.", p3_inc: "Professional paketidagi hammasi", p3_f1: "Motivatsion xat", p3_f2: "Premium individual dizayn",
+cv_tag: "Alohida xizmat", cv_h: "CV / rezyume tayyorlash", cv_d: "To‘liq portfolio sotib olmasdan, professional dizaynli CV oling.",
+cv_f1: "Professional CV tuzilmasi", cv_f2: "Zamonaviy va toza dizayn", cv_f3: "Ta’lim va ko‘nikmalar", cv_f4: "Tajriba va yutuqlar", cv_f5: "Tayyor PDF fayl",
+cv_order: "CV buyurtma qilish", cv_msg: "Assalomu alaykum! CV / rezyume buyurtma qilmoqchiman.",
+e_how: "Jarayon", how_h: "Qanday ishlayman", how_s: "Uch qadam, hammasi Telegram orqali.",
+st1_h: "Ma’lumot yuborasiz", st1_d: "Telegramda ism, sinf, maqsad hamda sertifikat va yutuqlaringiz rasmini yuborasiz.",
+st2_h: "Uslub tanlaysiz", st2_d: "Namunalardan birini tanlaysiz yoki o‘zingizga yoqqan ranglarni aytasiz.",
+st3_h: "PDF tayyor", st3_d: "Tayyor faylni ko‘rib chiqasiz, tuzatishlarni kiritib, yakuniy PDFni yuboraman.",
+e_faq: "Savollar", faq_h: "Ko‘p so‘raladigan savollar", faq_s: "Javobini topa olmasangiz, Telegramga yozing.", faq_cta: "Savol berish",
+fq1: "Qanday ma’lumotlar yuborishim kerak?", fa1: "Ism, sinf, maqsadingiz (qayerga topshirasiz), yutuqlar ro‘yxati hamda sertifikat va ishlaringiz rasmlari. Hammasini Telegramda yuborishingiz mumkin.",
+fq2: "Portfolio qaysi tilda bo‘ladi?", fa2: "O‘zbek, rus yoki ingliz tilida. Chet elga topshirish uchun odatda ingliz tilida tayyorlanadi.",
+fq3: "Fayl qanday formatda beriladi?", fa3: "PDF formatida: chop etish, emailga biriktirish va Telegramda yuborish uchun qulay. Xohlasangiz, havolali shaxsiy veb-sahifa ham qilaman.",
+fq4: "Tayyor bo‘lgach o‘zgartirsa bo‘ladimi?", fa4: "Ha. Tayyor faylni ko‘rib chiqasiz, kerakli tuzatishlarni kiritib, yakuniy PDFni yuboraman.",
+fq5: "Narxi qancha?", fa5: "Narx portfolio hajmiga bog‘liq. Telegramga yozing, maqsadingizni aytsangiz, aniq narxni aytaman.",
+e_ct: "Aloqa", ct_h: "Portfolio yoki CV kerakmi?", ct_d: "Telegramga yozing: maqsadingizni aytsangiz, qaysi uslub mos kelishini birga tanlaymiz.",
+ct_tg: "Telegram", ct_ph: "Telefon", ct_ig: "Instagram", ct_empty: "Telegram va telefon raqami shu yerda bo‘ladi.",
+ft_d: "O‘quvchilar uchun portfolio va CV: o‘zbek, rus va ingliz tilida.", ft_nav: "Bo‘limlar", ft_ct: "Aloqa", ft_note: "Namunadagi o‘quvchilar va ma’lumotlar o‘ylab topilgan.", totop: "Yuqoriga",
+prev: "Oldingi", next: "Keyingi", close: "Yopish"
+},
+ru: {
+skip: "Перейти к содержанию", nav_aria: "Разделы", lang_aria: "Язык", menu: "Меню",
+nav_samples: "Образцы", nav_about: "Обо мне", nav_services: "Услуги", nav_price: "Цены", nav_faq: "Вопросы", nav_contact: "Контакты",
+hero_e: "Нодир · дизайнер портфолио и резюме",
+h1: "Превращаю ваши достижения в сильное портфолио",
+intro: "Делаю аккуратные и красивые PDF-портфолио и резюме для школьников, которые поступают в университет, на грант, олимпиаду или курсы.",
+cta_contact: "Связаться", cta_tg: "Написать в Telegram", cta_samples: "Смотреть образцы",
+f1: "стиля оформления", f2: "языка: узбекский, русский, английский", f3: "и личная веб-страница",
+stage_aria: "Образцы портфолио", pf_a: "Образец: Aziza Karimova", pf_b: "Образец: Jasur Rahimov", pf_c: "Образец: Madina Yusupova",
+st_a: "Классика", st_b: "Модерн", st_c: "Творческий",
+mq_aria: "Для чего нужно портфолио",
+g1: "Поступление в университет", g2: "Гранты и стипендии", g3: "Олимпиады", g4: "Летние школы", g5: "IT-академии", g6: "Художественные колледжи", g7: "Учёба за рубежом", g8: "Волонтёрские программы",
+e_smp: "Образцы", smp_h: "Свой стиль для каждой цели",
+smp_s: "Ниже три образца портфолио: нажмите на страницу, чтобы увеличить. Ученики и данные в образцах вымышлены.",
+l_a: "Классический стиль, на английском",
+d_a: "Для ученицы 11 класса, которая поступает в зарубежные университеты: обложка, резюме, график результатов IELTS и SAT, достижения и копии сертификатов.",
+c_3p: "3 страницы", c_4p: "4 страницы", c_a1: "Результаты тестов", c_a3: "Сертификаты",
+l_b: "Современный стиль, на узбекском",
+d_b: "Для ученика 10 класса из IT-направления: обложка, резюме со шкалой навыков и проекты со скриншотами: Telegram-бот, сайт и дизайн приложения.",
+c_b1: "Проекты", c_b3: "Скриншоты",
+l_c: "Творческий стиль, на русском",
+d_c: "Для ученицы 9 класса, которая увлекается рисованием: обложка с акварелью, резюме и галерея работ: акварель, гуашь, карандаш и цифровой рисунок.",
+c_c1: "Галерея работ", c_c3: "6 работ",
+pg_cover: "Обложка", pg_cv: "Резюме", pg_3a: "Достижения", pg_3b: "Проекты", pg_3c: "Работы", pg_4a: "Сертификаты", pg_4c: "Работы (продолжение)",
+e_about: "Обо мне", about_hi: "Привет! Я Нодир,", about_h: "основатель этого сервиса по созданию портфолио.", about_role: "Основатель · дизайнер портфолио и резюме", about_p1: "Я верю, что у каждого ученика есть потенциал, достижения и амбиции, которые стоит показать профессионально. Но далеко не каждый знает, как упорядочить свой опыт и превратить его в убедительное портфолио.", about_p2: "Здесь на помощь прихожу я.", about_p3: "Я помогаю ученикам превратить образование, навыки, достижения и цели на будущее в профессионально оформленное портфолио, которое показывает, кто они и куда стремятся.", about_goal: "Моя цель проста: сделать профессиональную самопрезентацию доступной каждому ученику.",
+e_adv: "Преимущества", adv_h: "Почему со мной удобно", adv_s: "Каждое портфолио строится вокруг цели ученика.",
+a1_h: "Индивидуальный подход", a1_d: "Страницы строятся вокруг вашей цели и достижений, а не копируются из шаблона.",
+a2_h: "На трёх языках", a2_d: "Узбекский, русский или английский, при необходимости сразу на двух.",
+a3_h: "Готовый PDF", a3_d: "Удобно печатать, прикладывать к заявке и отправлять в Telegram.",
+a4_h: "С правками", a4_d: "Вы смотрите готовый файл, я вношу ваши изменения.",
+e_svc: "Услуги", svc_h: "Что вам нужно?", svc_s: "Всё делаю на узбекском, русском или английском.",
+s1_h: "Резюме", s1_u: "Для курсов, грантов или работы", s1_f1: "Резюме на одну страницу", s1_f2: "Образование, достижения и навыки", s1_f3: "PDF, готовый к печати",
+s2_h: "Портфолио", s2_u: "Для поступления в университет и на олимпиады", s2_f1: "Обложка и резюме", s2_f2: "Достижения и сертификаты", s2_f3: "Проекты или галерея работ", s2_f4: "PDF, готовый к печати",
+s3_h: "Портфолио и личная страница", s3_u: "Чтобы делиться ссылкой в заявках и в Telegram", s3_f1: "Полное PDF-портфолио", s3_f2: "Личная веб-страница со ссылкой", s3_f3: "Удобно смотреть с телефона",
+badge: "Рекомендую", order: "Заказать", price_l: "Цена",
+e_price: "Цены", p_h: "Пакеты и цены", p_s: "Выберите пакет под свою цель и оформите заказ в Telegram.",
+p_pop: "Самый популярный", p_cur: "сум", p_order: "Заказать", p_msg: "Здравствуйте! Хочу заказать пакет «{p}».",
+p1_d: "Профессиональный старт для школьников.", p1_f1: "Базовое личное портфолио", p1_f2: "Сведения об образовании", p1_f3: "Навыки", p1_f4: "Достижения", p1_f5: "Портфолио в PDF",
+p2_d: "Полный пакет для академических и карьерных возможностей.", p2_inc: "Всё, что входит в Starter", p2_f1: "Профессиональное CV / резюме", p2_f2: "Портфолио проектов", p2_f3: "Personal statement (личное эссе)",
+p3_d: "Полная самопрезентация, готовая к подаче заявки.", p3_inc: "Всё, что входит в Professional", p3_f1: "Мотивационное письмо", p3_f2: "Премиальный индивидуальный дизайн",
+cv_tag: "Отдельная услуга", cv_h: "Создание CV / резюме", cv_d: "Получите профессионально оформленное CV без покупки полного портфолио.",
+cv_f1: "Профессиональная структура CV", cv_f2: "Современный и чистый дизайн", cv_f3: "Образование и навыки", cv_f4: "Опыт и достижения", cv_f5: "Готовый файл в PDF",
+cv_order: "Заказать CV", cv_msg: "Здравствуйте! Хочу заказать CV / резюме.",
+e_how: "Процесс", how_h: "Как я работаю", how_s: "Три шага, всё через Telegram.",
+st1_h: "Вы присылаете данные", st1_d: "В Telegram: имя, класс, цель и фото сертификатов и достижений.",
+st2_h: "Вы выбираете стиль", st2_d: "Один из образцов или ваши любимые цвета.",
+st3_h: "PDF готов", st3_d: "Вы смотрите готовый файл, я вношу правки и присылаю финальный PDF.",
+e_faq: "Вопросы", faq_h: "Частые вопросы", faq_s: "Не нашли ответ? Напишите в Telegram.", faq_cta: "Задать вопрос",
+fq1: "Какие данные нужно прислать?", fa1: "Имя, класс, цель (куда вы поступаете), список достижений и фото сертификатов и работ. Всё можно прислать в Telegram.",
+fq2: "На каком языке будет портфолио?", fa2: "На узбекском, русском или английском. Для поступления за рубеж обычно делают на английском.",
+fq3: "В каком формате я получу файл?", fa3: "В формате PDF: его удобно печатать, прикладывать к письму и отправлять в Telegram. По желанию сделаю и личную веб-страницу со ссылкой.",
+fq4: "Можно ли что-то изменить после готовности?", fa4: "Да. Вы смотрите готовый файл, я вношу правки и присылаю финальный PDF.",
+fq5: "Сколько это стоит?", fa5: "Цена зависит от объёма портфолио. Напишите в Telegram, расскажите о цели, и я назову точную цену.",
+e_ct: "Контакты", ct_h: "Нужно портфолио или резюме?", ct_d: "Напишите в Telegram: расскажите о своей цели, и вместе выберем подходящий стиль.",
+ct_tg: "Telegram", ct_ph: "Телефон", ct_ig: "Instagram", ct_empty: "Здесь будут Telegram и номер телефона.",
+ft_d: "Портфолио и резюме для школьников на узбекском, русском и английском.", ft_nav: "Разделы", ft_ct: "Контакты", ft_note: "Ученики и данные в образцах вымышлены.", totop: "Наверх",
+prev: "Назад", next: "Вперёд", close: "Закрыть"
+},
+en: {
+skip: "Skip to content", nav_aria: "Sections", lang_aria: "Language", menu: "Menu",
+nav_samples: "Samples", nav_about: "About", nav_services: "Services", nav_price: "Pricing", nav_faq: "FAQ", nav_contact: "Contact",
+hero_e: "Nodir · portfolio and CV designer",
+h1: "I turn your achievements into a strong portfolio",
+intro: "Clear, good-looking PDF portfolios and CVs for pupils applying to universities, grants, olympiads and courses.",
+cta_contact: "Get in touch", cta_tg: "Message on Telegram", cta_samples: "See the samples",
+f1: "sample styles", f2: "languages: Uzbek, Russian, English", f3: "plus a personal web page",
+stage_aria: "Sample portfolios", pf_a: "Sample: Aziza Karimova", pf_b: "Sample: Jasur Rahimov", pf_c: "Sample: Madina Yusupova",
+st_a: "Classic", st_b: "Modern", st_c: "Creative",
+mq_aria: "What a portfolio is for",
+g1: "University applications", g2: "Grants and scholarships", g3: "Olympiads", g4: "Summer schools", g5: "IT academies", g6: "Art colleges", g7: "Study abroad", g8: "Volunteer programmes",
+e_smp: "Samples", smp_h: "A style for every goal",
+smp_s: "Here are three sample portfolios. Tap a page to enlarge it. The pupils and details in these samples are made up.",
+l_a: "Classic style, in English",
+d_a: "For a Grade 11 pupil applying to universities abroad: cover, CV, a chart of IELTS and SAT results, achievements and certificate copies.",
+c_3p: "3 pages", c_4p: "4 pages", c_a1: "Test results", c_a3: "Certificates",
+l_b: "Modern style, in Uzbek",
+d_b: "For a Grade 10 pupil heading into IT: cover, a CV with a skills scale, and projects with screenshots: a Telegram bot, a website and an app design.",
+c_b1: "Projects", c_b3: "Screenshots",
+l_c: "Creative style, in Russian",
+d_c: "For a Grade 9 pupil who loves drawing: a watercolour cover, a CV and a gallery of watercolour, gouache, pencil and digital work.",
+c_c1: "Artwork gallery", c_c3: "6 artworks",
+pg_cover: "Cover", pg_cv: "CV", pg_3a: "Achievements", pg_3b: "Projects", pg_3c: "Artwork", pg_4a: "Certificates", pg_4c: "Artwork, continued",
+e_about: "About me", about_hi: "Hi! I’m Nodir,", about_h: "the founder behind this portfolio service.", about_role: "Founder · portfolio and CV designer", about_p1: "I believe every student has potential, achievements, and ambitions worth presenting professionally. However, not everyone knows how to organize their experience and turn it into a compelling portfolio.", about_p2: "That’s where I come in.", about_p3: "I help students transform their educational backgrounds, skills, achievements, and future goals into professionally designed portfolios that represent who they are and where they want to go.", about_goal: "My goal is simple: make professional self-presentation accessible to every student.",
+e_adv: "Advantages", adv_h: "Why work with me", adv_s: "Every portfolio is built around the pupil’s goal.",
+a1_h: "Made for you", a1_d: "Pages are built around your goal and achievements, not copied from a template.",
+a2_h: "Three languages", a2_d: "Uzbek, Russian or English, or two of them side by side.",
+a3_h: "Ready-to-use PDF", a3_d: "Easy to print, attach to an application and send on Telegram.",
+a4_h: "With revisions", a4_d: "You check the finished file and I make your changes.",
+e_svc: "Services", svc_h: "What do you need?", svc_s: "All three come in Uzbek, Russian or English.",
+s1_h: "CV", s1_u: "For courses, grants or jobs", s1_f1: "A one-page CV", s1_f2: "Education, achievements and skills", s1_f3: "Print-ready PDF",
+s2_h: "Portfolio", s2_u: "For university and olympiad applications", s2_f1: "Cover and CV", s2_f2: "Achievements and certificates", s2_f3: "Projects or an artwork gallery", s2_f4: "Print-ready PDF",
+s3_h: "Portfolio and personal page", s3_u: "To share the link in applications and on Telegram", s3_f1: "Full PDF portfolio", s3_f2: "Personal web page with its own link", s3_f3: "Looks good on a phone too",
+badge: "I recommend", order: "Order", price_l: "Price",
+e_price: "Pricing", p_h: "Packages and pricing", p_s: "Choose the package that fits your goal and order on Telegram.",
+p_pop: "Most Popular", p_cur: "UZS", p_order: "Order Now", p_msg: "Hello! I’d like to order the {p} package.",
+p1_d: "A professional starting point for students.", p1_f1: "Basic personal portfolio", p1_f2: "Education information", p1_f3: "Skills", p1_f4: "Achievements", p1_f5: "PDF portfolio",
+p2_d: "A complete package for academic and career opportunities.", p2_inc: "Everything included in Starter", p2_f1: "Professional CV / Resume", p2_f2: "Projects portfolio", p2_f3: "Personal statement",
+p3_d: "A complete application-ready personal presentation.", p3_inc: "Everything included in Professional", p3_f1: "Motivation letter", p3_f2: "Premium custom design",
+cv_tag: "Standalone service", cv_h: "CV / Resume creation", cv_d: "Get a professionally designed CV without purchasing a complete portfolio.",
+cv_f1: "Professional CV structure", cv_f2: "Modern and clean design", cv_f3: "Education and skills", cv_f4: "Experience and achievements", cv_f5: "PDF delivery",
+cv_order: "Order CV", cv_msg: "Hello! I’d like to order a CV / resume.",
+e_how: "Process", how_h: "How it works", how_s: "Three steps, all on Telegram.",
+st1_h: "You send your details", st1_d: "On Telegram: your name, grade, goal and photos of your certificates and achievements.",
+st2_h: "You pick a style", st2_d: "One of the samples, or the colours you like.",
+st3_h: "Your PDF is ready", st3_d: "You check the finished file, I make your changes and send the final PDF.",
+e_faq: "FAQ", faq_h: "Frequently asked questions", faq_s: "Can’t find your answer? Message me on Telegram.", faq_cta: "Ask a question",
+fq1: "What do I need to send you?", fa1: "Your name, grade, goal (where you’re applying), a list of achievements, and photos of your certificates and work. You can send it all on Telegram.",
+fq2: "Which language will it be in?", fa2: "Uzbek, Russian or English. Applications abroad are usually in English.",
+fq3: "What format will I get?", fa3: "A PDF: easy to print, attach to an email and send on Telegram. If you like, I’ll also make a personal web page with its own link.",
+fq4: "Can I ask for changes?", fa4: "Yes. You check the finished file, I make your changes and send the final PDF.",
+fq5: "How much does it cost?", fa5: "It depends on the size of the portfolio. Message me on Telegram with your goal and I’ll give you an exact price.",
+e_ct: "Contact", ct_h: "Need a portfolio or a CV?", ct_d: "Message me on Telegram, tell me your goal, and we’ll pick the right style together.",
+ct_tg: "Telegram", ct_ph: "Phone", ct_ig: "Instagram", ct_empty: "Telegram and phone number go here.",
+ft_d: "Portfolios and CVs for school pupils in Uzbek, Russian and English.", ft_nav: "Sections", ft_ct: "Contact", ft_note: "The pupils and details in the samples are made up.", totop: "Back to top",
+prev: "Previous", next: "Next", close: "Close"
+}
+};
+
+const root = document.documentElement;
+const motionOK = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const handle = s => String(s || "").trim().replace(/^@/, "").replace(/[^A-Za-z0-9_.]/g, "");
+
+/* contact rows, Telegram links and prices */
+const tg = handle(CONTACT.telegram);
+const ig = handle(CONTACT.instagram);
+const ph = String(CONTACT.phone || "").trim();
+const rows = [];
+if (tg) rows.push(["ct_tg", "https://t.me/" + tg, "@" + tg]);
+if (ph) rows.push(["ct_ph", "tel:" + ph.replace(/[^+\d]/g, ""), ph]);
+if (ig) rows.push(["ct_ig", "https://instagram.com/" + ig, "@" + ig]);
+const ext = href => href.startsWith("tel:") ? "" : ' target="_blank" rel="noopener"';
+$("#ct-rows").innerHTML = rows.length
+  ? rows.map(r => '<div class="ct-row"><span data-k="' + r[0] + '"></span><a href="' + esc(r[1]) + '"' + ext(r[1]) + ">" + esc(r[2]) + "</a></div>").join("")
+  : '<p class="ct-empty" data-k="ct_empty"></p>';
+$("#ft-ct").innerHTML = rows.length
+  ? rows.map(r => '<a href="' + esc(r[1]) + '"' + ext(r[1]) + ">" + esc(r[2]) + "</a>").join("")
+  : '<span class="muted" data-k="ct_empty"></span>';
+if (tg) {
+  for (const a of $$("[data-tg]")) {
+    a.href = "https://t.me/" + tg;
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.hidden = false;
+    const lab = a.querySelector("[data-k]");
+    if (lab && a.dataset.tg === "label") lab.dataset.k = "cta_tg";
+  }
+}
+for (const [k, v] of Object.entries(PRICES)) {
+  const el = document.querySelector('[data-price="' + k + '"]');
+  const val = String(v || "").trim();
+  if (el && val) { el.querySelector("b").textContent = val; el.hidden = false; }
+}
+
+/* pricing: amounts in each language's format; order buttons open Telegram with the package already typed in */
+const groupSep = { uz: "\u202f", ru: "\u202f", en: "," };
+const money = (n, l) => String(Math.round(Number(n) || 0)).replace(/\B(?=(\d{3})+(?!\d))/g, groupSep[l] || "\u202f");
+function plans(l, d) {
+  $$("[data-sum]").forEach(e => { const n = PLAN_PRICES[e.dataset.sum]; if (n) e.textContent = money(n, l); });
+  $$("[data-order]").forEach(a => {
+    const isCv = a.dataset.order === "cv";
+    const name = a.closest("article").querySelector("h3").textContent.trim();
+    const msg = isCv ? d.cv_msg : String(d.p_msg || "").replace("{p}", name);
+    if (tg) { a.href = "https://t.me/" + tg + "?text=" + encodeURIComponent(msg); a.target = "_blank"; a.rel = "noopener"; }
+    if (!isCv) a.setAttribute("aria-label", d.p_order + ": " + name);
+  });
+}
+
+/* page viewer */
+const dlg = $("#viewer"), vImg = $("#v-img"), vCap = $("#v-cap"), vCount = $("#v-count");
+const pages = $$(".pg img");
+let cur = 0;
+function show(i, dir) {
+  cur = (i + pages.length) % pages.length;
+  const im = pages[cur];
+  vImg.src = im.dataset.full;
+  vImg.alt = im.alt;
+  vCap.textContent = im.alt;
+  vCount.textContent = (cur + 1) + " / " + pages.length;
+  if (dir && motionOK && vImg.animate) {
+    vImg.animate([{ opacity: 0, transform: "translateX(" + (dir * 28) + "px)" }, { opacity: 1, transform: "none" }],
+      { duration: 340, easing: "cubic-bezier(.2,.7,.2,1)" });
+  }
+  for (const k of [1, -1]) { const pre = new Image(); pre.src = pages[(cur + k + pages.length) % pages.length].dataset.full; }
+}
+const openDlg = () => { if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", ""); };
+const closeDlg = () => { if (dlg.close) dlg.close(); else dlg.removeAttribute("open"); };
+$$(".pg").forEach((b, i) => b.addEventListener("click", () => { show(i); openDlg(); }));
+$("#v-prev").addEventListener("click", () => show(cur - 1, -1));
+$("#v-next").addEventListener("click", () => show(cur + 1, 1));
+$("#v-close").addEventListener("click", closeDlg);
+dlg.addEventListener("click", e => { if (e.target === dlg) closeDlg(); });
+dlg.addEventListener("keydown", e => {
+  if (e.key === "ArrowRight") { e.preventDefault(); show(cur + 1, 1); }
+  if (e.key === "ArrowLeft") { e.preventDefault(); show(cur - 1, -1); }
+});
+let sx = null, sy = 0;
+vImg.addEventListener("pointerdown", e => { sx = e.clientX; sy = e.clientY; });
+vImg.addEventListener("pointercancel", () => { sx = null; });
+vImg.addEventListener("pointerup", e => {
+  if (sx === null) return;
+  const dx = e.clientX - sx, dy = e.clientY - sy;
+  sx = null;
+  if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) { const d = dx < 0 ? 1 : -1; show(cur + d, d); }
+});
+
+/* languages; the headline is split into words so it can rise word by word */
+const h1 = $("#h1");
+function splitH1(text) {
+  const words = String(text).split(/\s+/).filter(Boolean);
+  h1.innerHTML = '<span class="sr">' + esc(text) + '</span><span class="h1w" aria-hidden="true">' +
+    words.map(w => '<span class="w"><span>' + esc(w) + "</span></span>").join(" ") + "</span>";
+  h1.querySelectorAll(".w > span").forEach((s, i) => s.style.setProperty("--i", i));
+}
+function setLang(l) {
+  const d = T[l] || T.uz;
+  root.lang = l;
+  $$("[data-k]").forEach(e => { const v = d[e.dataset.k]; if (v != null) e.textContent = v; });
+  $$("[data-ka]").forEach(e => { const v = d[e.dataset.ka]; if (v != null) e.setAttribute("aria-label", v); });
+  plans(l, d);
+  $$("img[data-pg]").forEach(e => { e.alt = e.dataset.name + ": " + (d[e.dataset.pg] || ""); });
+  splitH1(d.h1);
+  $$(".langs button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.l === l)));
+  if (dlg.open) show(cur);
+  try { localStorage.setItem("nodir-lang", l); } catch (err) {}
+}
+$$(".langs button").forEach(b => b.addEventListener("click", () => setLang(b.dataset.l)));
+let start = "uz";
+try { const s = localStorage.getItem("nodir-lang"); if (s && T[s]) start = s; } catch (err) {}
+setLang(start);
+
+/* header: shadow once scrolled, reading progress */
+const bar = $(".top"), prog = $(".progress");
+let ticking = false;
+function onScroll() {
+  if (ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => {
+    ticking = false;
+    const y = window.scrollY;
+    bar.classList.toggle("scrolled", y > 8);
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.transform = "scaleX(" + (max > 0 ? Math.min(1, y / max) : 0).toFixed(4) + ")";
+    /* at the very bottom, show whatever is left (the last blocks can't scroll any higher) */
+    if (y >= max - 4) $$(".rv-on .rv:not(.in):not(.seen)").forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add("in"); });
+  });
+}
+addEventListener("scroll", onScroll, { passive: true });
+addEventListener("resize", onScroll);
+onScroll();
+
+/* mobile menu */
+const mBtn = $("#menu-btn"), mNav = $("#m-nav");
+const setMenu = open => { mBtn.setAttribute("aria-expanded", String(open)); mNav.hidden = !open; };
+mBtn.addEventListener("click", () => setMenu(mBtn.getAttribute("aria-expanded") !== "true"));
+mNav.addEventListener("click", e => { if (e.target.closest("a")) setMenu(false); });
+document.addEventListener("click", e => { if (!mNav.hidden && !e.target.closest(".top")) setMenu(false); });
+addEventListener("keydown", e => { if (e.key === "Escape" && !mNav.hidden) { setMenu(false); mBtn.focus(); } });
+const wide = matchMedia("(min-width: 860px)");
+const onWide = () => { if (wide.matches) setMenu(false); };
+if (wide.addEventListener) wide.addEventListener("change", onWide);
+
+if ("IntersectionObserver" in window) {
+  /* which section is on screen: underline its link */
+  const navAs = $$(".links a, .m-nav nav a");
+  const spy = new IntersectionObserver(es => {
+    for (const e of es) {
+      if (!e.isIntersecting) continue;
+      const id = e.target.dataset.spy;
+      navAs.forEach(a => { if (id && a.getAttribute("href") === "#" + id) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current"); });
+    }
+  }, { rootMargin: "-40% 0px -59% 0px" });
+  $$("[data-spy]").forEach(s => spy.observe(s));
+
+  /* reveal blocks as they scroll in; anything already on screen just stays visible */
+  if (motionOK) {
+    const io = new IntersectionObserver(es => {
+      for (const e of es) if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    }, { rootMargin: "0px 0px -10% 0px" });
+    const vh = window.innerHeight;
+    for (const el of $$(".rv")) {
+      const r = el.getBoundingClientRect();
+      if (r.top < vh * 0.9 && r.bottom > 0) el.classList.add("seen"); else io.observe(el);
+    }
+    root.classList.add("rv-on");
+  }
+}
+
+/* the desk tilts a little towards the pointer */
+const stage = $(".stage"), fan = $(".fan");
+if (motionOK && matchMedia("(hover: hover) and (pointer: fine)").matches) {
+  let raf = 0, px = 0, py = 0;
+  stage.addEventListener("pointermove", e => {
+    const r = stage.getBoundingClientRect();
+    px = (e.clientX - r.left) / r.width - 0.5;
+    py = (e.clientY - r.top) / r.height - 0.5;
+    if (!raf) raf = requestAnimationFrame(() => {
+      raf = 0;
+      fan.style.setProperty("--ry", (px * 14).toFixed(2) + "deg");
+      fan.style.setProperty("--rx", (py * -10).toFixed(2) + "deg");
+    });
+  });
+  stage.addEventListener("pointerleave", () => { fan.style.setProperty("--ry", "0deg"); fan.style.setProperty("--rx", "0deg"); });
+}
+}
+</script>
+</body>
+</html>
